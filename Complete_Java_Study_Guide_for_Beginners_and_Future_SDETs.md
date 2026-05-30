@@ -205,6 +205,16 @@ You will understand what Java is, how Java code runs, how to install and check t
 
 Every Java automation framework starts with the same foundation: source files, class files, packages, a JDK, a compiler, and a runtime. Testers who understand the Java execution flow can diagnose setup problems faster and understand what an IDE is doing behind the scenes.
 
+```mermaid
+flowchart TD
+    A["JDK<br/>Development tools"] --> B["javac compiler"]
+    A --> C["JRE<br/>Runtime environment"]
+    C --> D["JVM<br/>Runs bytecode"]
+    C --> E["Standard libraries"]
+    B --> F[".class bytecode"]
+    F --> D
+```
+
 ## Lessons
 
 ### Lesson 1.1: How Java Works
@@ -287,7 +297,7 @@ public class SetupCheck {
 ```java
 public class TesterIntro {
     public static void main(String[] args) {
-        System.out.println("Amina");
+        System.out.println("OmarDotLog");
         System.out.println("Future SDET");
     }
 }
@@ -465,7 +475,7 @@ In automation code, comments should explain why a test step exists, not describe
 public class LearningGoal {
     public static void main(String[] args) {
         // Student identity
-        System.out.println("Name: Amina");
+        System.out.println("Name: OmarDotLog");
 
         /*
            Goal summary for this course.
@@ -625,7 +635,7 @@ Build a console program that prints a setup checklist for a new Java learner.
 ```java
 public class SetupVerification {
     public static void main(String[] args) {
-        System.out.println("Learner: Amina");
+        System.out.println("Learner: OmarDotLog");
         System.out.println("Target Java: Java 25 LTS");
         System.out.println("IDE: IntelliJ IDEA Community Edition");
         System.out.println("Status: Ready to write Java programs");
@@ -637,7 +647,7 @@ public class SetupVerification {
 ### Expected Result
 
 ```text
-Learner: Amina
+Learner: OmarDotLog
 Target Java: Java 25 LTS
 IDE: IntelliJ IDEA Community Edition
 Status: Ready to write Java programs
@@ -697,6 +707,16 @@ You will learn how Java stores data, how to choose data types, how to work with 
 
 Test automation uses data constantly: usernames, passwords, order IDs, prices, dates, expected results, actual results, status codes, and error messages. If you cannot store, compare, and print data correctly, you cannot write reliable tests.
 
+```mermaid
+flowchart LR
+    A["Java data"] --> B["Primitive types"]
+    A --> C["Reference types"]
+    B --> D["int<br/>double<br/>boolean<br/>char"]
+    C --> E["String<br/>arrays<br/>objects<br/>collections"]
+    D --> F["Store simple values"]
+    E --> G["Refer to objects with methods and fields"]
+```
+
 ## Lessons
 
 ### Lesson 2.1: Variables, Constants, Primitive Types, and Reference Types
@@ -741,7 +761,7 @@ public class VariableExample {
         double passRate = 92.5;
         boolean buildPassed = true;
         char grade = 'A';
-        String testerName = "Amina";
+        String testerName = "OmarDotLog";
         final int MAX_RETRY_COUNT = 3;
 
         System.out.println("Tester: " + testerName);
@@ -760,13 +780,13 @@ public class VariableExample {
 * `double passRate = 92.5;` stores a decimal number.
 * `boolean buildPassed = true;` stores true/false.
 * `char grade = 'A';` stores one character using single quotes.
-* `String testerName = "Amina";` stores text using double quotes.
+* `String testerName = "OmarDotLog";` stores text using double quotes.
 * `final int MAX_RETRY_COUNT = 3;` stores a constant value.
 
 #### Expected Output
 
 ```text
-Tester: Amina
+Tester: OmarDotLog
 Test cases: 25
 Pass rate: 92.5
 Build passed: true
@@ -984,10 +1004,10 @@ Strings are immutable. This means a string value does not change directly. Metho
 #### Syntax
 
 ```java
-String name = "Amina";
+String name = "OmarDotLog";
 int length = name.length();
 String upper = name.toUpperCase();
-boolean same = name.equals("Amina");
+boolean same = name.equals("OmarDotLog");
 ```
 
 #### Detailed Code Example
@@ -1149,13 +1169,13 @@ public class InputExample {
 
 #### Expected Output
 
-If the user enters `Amina`, `18`, and `20`:
+If the user enters `OmarDotLog`, `18`, and `20`:
 
 ```text
-Enter tester name: Amina
+Enter tester name: OmarDotLog
 Enter passed tests: 18
 Enter total tests: 20
-Tester: Amina
+Tester: OmarDotLog
 Pass rate: 90.00%
 ```
 
@@ -1300,13 +1320,13 @@ public class TestDataFormatter {
 Example run:
 
 ```text
-Tester name: Amina
+Tester name: OmarDotLog
 Environment: qa
 Username:   STANDARD_USER
 Passed tests: 18
 Total tests: 20
 --- Test Data Report ---
-Tester: Amina
+Tester: OmarDotLog
 Environment: QA
 Username: standard_user
 Pass rate: 90.00%
@@ -1365,6 +1385,15 @@ You will learn how Java makes decisions and repeats actions using `if`, `else`, 
 ## Why This Unit Matters
 
 Testing is full of decisions: if login succeeds, verify the dashboard; if an API returns `500`, fail the test; if a field is empty, show a validation message. Loops are also essential for processing many users, test cases, rows, or results.
+
+```mermaid
+flowchart TD
+    A["Input or current state"] --> B{"Condition true?"}
+    B -- Yes --> C["Run true branch"]
+    B -- No --> D["Run else or next condition"]
+    C --> E["Continue program"]
+    D --> E
+```
 
 ## Lessons
 
@@ -1610,6 +1639,15 @@ Create defect
 #### Simple Explanation
 
 Loops repeat code. Use a `for` loop when you know how many times to repeat. Use a `while` loop when repetition depends on a condition. Use a `do while` loop when the code must run at least once.
+
+```mermaid
+flowchart LR
+    A["Initialize"] --> B{"Condition true?"}
+    B -- Yes --> C["Run loop body"]
+    C --> D["Update counter or state"]
+    D --> B
+    B -- No --> E["Exit loop"]
+```
 
 #### Key Terms
 
@@ -1990,6 +2028,15 @@ You will learn how to organize Java code into reusable methods with parameters, 
 ## Why This Unit Matters
 
 Automation code becomes messy fast if every test repeats the same login, validation, data creation, or report logic. Methods let you create reusable helpers that make tests shorter and easier to maintain.
+
+```mermaid
+flowchart LR
+    A["Caller"] --> B["Arguments"]
+    B --> C["Method body"]
+    C --> D{"Return type"}
+    D -- "void" --> E["Action completed"]
+    D -- "value" --> F["Result returned to caller"]
+```
 
 ## Lessons
 
@@ -2505,6 +2552,15 @@ Testers often work with repeated data: usernames, expected messages, test status
 
 An array stores multiple values of the same type in one variable. Each value has an index. Java array indexes start at `0`, so the first item is at index `0`, the second at index `1`, and so on.
 
+```mermaid
+flowchart LR
+    A["Index 0<br/>Chrome"] --> B["Index 1<br/>Firefox"]
+    B --> C["Index 2<br/>Edge"]
+    C --> D["Length = 3"]
+    E["Valid indexes"] --> F["0 to length - 1"]
+    G["Invalid index"] --> H["3 causes out-of-bounds error"]
+```
+
 #### Key Terms
 
 * Array: fixed-size container for values of the same type.
@@ -2515,9 +2571,9 @@ An array stores multiple values of the same type in one variable. Each value has
 #### Syntax
 
 ```java
-String[] names = {"Amina", "Omar", "Lina"};
+String[] names = {"OmarDotLog", "OmarDotLog", "Mona"};
 System.out.println(names[0]);
-names[1] = "Noor";
+names[1] = "Ezz";
 ```
 
 #### Detailed Code Example
@@ -2985,6 +3041,14 @@ Automation frameworks model real things: users, browsers, test cases, pages, bug
 #### Simple Explanation
 
 A class is a blueprint. An object is a real instance created from that blueprint. A class can define fields for data and methods for behavior.
+
+```mermaid
+flowchart LR
+    A["Class blueprint<br/>UserProfile"] --> B["Object 1<br/>qa_admin ADMIN active"]
+    A --> C["Object 2<br/>guest USER inactive"]
+    A --> D["Object 3<br/>locked_user USER inactive"]
+    B --> E["Each object has its own field values"]
+```
 
 #### Key Terms
 
@@ -3552,6 +3616,15 @@ You will learn how Java supports flexible object-oriented design using inheritan
 
 Many automation frameworks use OOP heavily. Page objects, service clients, test data builders, driver factories, and reporting tools depend on flexible object relationships. Understanding OOP helps you read and design framework code instead of only copying it.
 
+```mermaid
+flowchart TD
+    A["OOP relationship choice"] --> B{"Is it truly an is-a relationship?"}
+    B -- Yes --> C["Use inheritance<br/>BugItem is a WorkItem"]
+    B -- No --> D{"Does it use or contain another object?"}
+    D -- Yes --> E["Use composition<br/>LoginService has a Logger"]
+    D -- No --> F["Keep separate classes"]
+```
+
 ## Lessons
 
 ### Lesson 7.1: Inheritance, super, and Method Overriding
@@ -3687,7 +3760,7 @@ class Tester extends Person {
 
 public class TesterDemo {
     public static void main(String[] args) {
-        Tester tester = new Tester("Amina", "Automation");
+        Tester tester = new Tester("OmarDotLog", "Automation");
         System.out.println(tester.describe());
     }
 }
@@ -3696,7 +3769,7 @@ public class TesterDemo {
 Expected output:
 
 ```text
-Person: Amina | specialty=Automation
+Person: OmarDotLog | specialty=Automation
 ```
 
 #### Lesson Recap
@@ -4368,7 +4441,7 @@ class Account {
 
 public class AccessModifierExample {
     public static void main(String[] args) {
-        Account account = new Account("Amina", 100);
+        Account account = new Account("OmarDotLog", 100);
         account.withdraw(30);
         System.out.println(account.owner);
         System.out.println(account.getBalance());
@@ -4387,7 +4460,7 @@ public class AccessModifierExample {
 
 ```text
 Withdrawn: 30.0
-Amina
+OmarDotLog
 70.0
 ```
 
@@ -5377,6 +5450,16 @@ flowchart TD
     D -- No --> F["Set / HashSet"]
 ```
 
+```mermaid
+flowchart LR
+    A["List"] --> B["[PASS, FAIL, PASS]"]
+    C["Set"] --> D["[smoke, regression]"]
+    E["Map"] --> F["qa_admin -> ADMIN<br/>qa_user -> USER"]
+    B --> G["Order matters and duplicates allowed"]
+    D --> H["Unique values only"]
+    F --> I["Lookup by key"]
+```
+
 ## Lessons
 
 ### Lesson 10.1: List, ArrayList, and LinkedList
@@ -5403,7 +5486,7 @@ A `List` stores ordered values and allows duplicates. `ArrayList` is the most co
 
 ```java
 List<String> names = new ArrayList<>();
-names.add("Amina");
+names.add("OmarDotLog");
 String first = names.get(0);
 ```
 
@@ -6031,6 +6114,14 @@ You will learn what generics are, why Java uses them, how they make collections 
 
 Most Java collections and many automation libraries use generics. When you see `List<String>`, `Map<String, Integer>`, or `Response<User>`, you are seeing generics. Understanding them helps you read modern Java code confidently.
 
+```mermaid
+flowchart LR
+    A["List<String>"] --> B["Allowed<br/>\"qa_admin\""]
+    A --> C["Allowed<br/>\"qa_user\""]
+    A --> D["Rejected by compiler<br/>200"]
+    E["Generic type"] --> F["Protects the collection from wrong value types"]
+```
+
 ## Lessons
 
 ### Lesson 11.1: Generics with Collections
@@ -6425,6 +6516,16 @@ You will learn how to read and write text files using modern Java APIs, handle f
 ## Why This Unit Matters
 
 Automation often reads test data from files and writes reports or logs. Even before advanced tools, you should know how Java opens, reads, writes, and handles file-related failures.
+
+```mermaid
+flowchart LR
+    A["users.csv"] --> B["Files.readAllLines"]
+    B --> C["List<String> rows"]
+    C --> D["Split and validate columns"]
+    D --> E["User objects"]
+    E --> F["Process test scenarios"]
+    F --> G["Files.write report.txt"]
+```
 
 ## Lessons
 
@@ -7400,6 +7501,15 @@ false
 
 A stream is a pipeline for processing data from a collection. You can filter items, transform them, and collect the result into a new collection.
 
+```mermaid
+flowchart LR
+    A["Source List<br/>PASS FAIL SKIPPED"] --> B["stream()"]
+    B --> C["filter<br/>keep FAIL"]
+    C --> D["map<br/>transform if needed"]
+    D --> E["terminal operation<br/>toList or count"]
+    E --> F["Result"]
+```
+
 #### Key Terms
 
 * Stream: sequence of values processed through operations.
@@ -7767,6 +7877,19 @@ SDETs spend a large part of their work diagnosing failures. A failing test may b
 #### Simple Explanation
 
 Error messages are clues. Start with the first meaningful error. Identify the file, line, and message. Reproduce the issue with the smallest example possible. Then fix one thing and run again.
+
+```mermaid
+flowchart TD
+    A["Failure appears"] --> B["Read first meaningful error"]
+    B --> C["Find file and line"]
+    C --> D["Reproduce with same input"]
+    D --> E["Inspect values"]
+    E --> F["Change one thing"]
+    F --> G["Run again"]
+    G --> H{"Fixed?"}
+    H -- Yes --> I["Add note to mistakes log"]
+    H -- No --> B
+```
 
 #### Key Terms
 
@@ -9616,10 +9739,10 @@ Files.write(Path.of("test-report.txt"), reportLines);
 
 ```text
 === Test Execution Manager ===
-101 | Valid login | P1 | PASS | Amina | 31/05/2026
-102 | Invalid login | P2 | FAIL | Omar | 31/05/2026
-103 | Checkout with card | P1 | FAIL | Lina | 31/05/2026
-104 | Logout | P3 | SKIPPED | Amina | 31/05/2026
+101 | Valid login | P1 | PASS | OmarDotLog | 31/05/2026
+102 | Invalid login | P2 | FAIL | OmarDotLog | 31/05/2026
+103 | Checkout with card | P1 | FAIL | Mona | 31/05/2026
+104 | Logout | P3 | SKIPPED | OmarDotLog | 31/05/2026
 
 Status counts:
 PASS: 1
@@ -9628,7 +9751,7 @@ SKIPPED: 1
 NOT_RUN: 0
 
 High priority failures:
-103 | Checkout with card | P1 | FAIL | Lina | 31/05/2026
+103 | Checkout with card | P1 | FAIL | Mona | 31/05/2026
 
 Report written to test-report.txt
 ```
@@ -9727,7 +9850,7 @@ Report written to test-report.txt
 | `double` | `double price = 19.99;` | Decimal numbers |
 | `boolean` | `boolean active = true;` | True/false |
 | `char` | `char grade = 'A';` | Single character |
-| `String` | `String name = "Amina";` | Text |
+| `String` | `String name = "OmarDotLog";` | Text |
 
 ### Operators
 
@@ -9845,7 +9968,7 @@ try {
 | `class X is public, should be declared in a file named X.java` | File name and public class name differ | Rename file or class | `Hello.java` contains `public class Hello` |
 | `cannot find symbol` | Misspelled variable, method, or missing import | Check spelling and imports | `System.out.prinln` should be `println` |
 | `incompatible types` | Assigning wrong type | Use correct type or conversion | `int x = "5";` is invalid |
-| String comparison fails | Used `==` instead of `equals` | Use `.equals()` | `name.equals("Amina")` |
+| String comparison fails | Used `==` instead of `equals` | Use `.equals()` | `name.equals("OmarDotLog")` |
 | Integer division gives `0` | Both operands are integers | Cast one operand to `double` | `(double) passed / total` |
 | `NullPointerException` | Calling method on null reference | Check null or initialize object | `if (name != null)` |
 | `ArrayIndexOutOfBoundsException` | Index outside valid range | Use `0` to `length - 1` | `array[array.length - 1]` |
