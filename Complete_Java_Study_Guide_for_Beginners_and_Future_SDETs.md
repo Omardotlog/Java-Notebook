@@ -83,6 +83,8 @@ After completing this guide, you should be able to:
 
 Use Java 25 LTS for this guide. Java 25 LTS is a stable Long-Term Support baseline for students and teams. Most examples also work on Java 21 LTS because the guide avoids preview features and advanced version-specific APIs.
 
+For beginner study, install the full JDK, not only a runtime. Modern JDK distributions include the runtime components needed to run Java programs, plus developer tools such as `javac`.
+
 ### Required Tools
 
 You need:
@@ -279,6 +281,8 @@ public class TesterIntro {
 
 The JDK must be installed on your computer. Your terminal needs to know where Java tools are located. `JAVA_HOME` usually points to the JDK installation folder. `PATH` allows commands such as `java` and `javac` to run from any folder.
 
+You do not need a separate JRE for this guide. Install the JDK and verify that both `java` and `javac` work.
+
 #### Key Terms
 
 * Environment variable: a system-level setting used by programs.
@@ -308,6 +312,55 @@ javac -version
 * `javac -version` checks the compiler.
 * Both should display version information.
 
+#### Beginner Setup Steps
+
+Use the steps for your operating system.
+
+Windows:
+
+1. Install JDK 25 LTS.
+2. Open a new Command Prompt or PowerShell window.
+3. Run `java -version`.
+4. Run `javac -version`.
+5. If one command is not found, check that the JDK `bin` folder is on `PATH`.
+6. If `JAVA_HOME` is required by another tool, set it to the JDK folder, not the `bin` folder.
+
+macOS:
+
+1. Install JDK 25 LTS.
+2. Open Terminal.
+3. Run `java -version`.
+4. Run `javac -version`.
+5. If the commands are not found, reopen Terminal and confirm the installed JDK is selected.
+
+Linux:
+
+1. Install JDK 25 LTS using your distribution package manager or a JDK installer.
+2. Open Terminal.
+3. Run `java -version`.
+4. Run `javac -version`.
+5. If the commands are not found, check `PATH` and the active Java alternative.
+
+IntelliJ IDEA Community first project:
+
+1. Open IntelliJ IDEA Community Edition.
+2. Select `New Project`.
+3. Choose Java.
+4. Select the installed JDK.
+5. Create a class named `HelloJava`.
+6. Add a `main` method.
+7. Click the green run button next to `main`.
+8. Confirm the output appears in the Run window.
+
+Terminal compile and run check:
+
+```bash
+javac HelloJava.java
+java HelloJava
+```
+
+Use the terminal check when you want to verify that Java works outside the IDE.
+
 #### Expected Output
 
 Exact output varies, but it should look similar to:
@@ -326,6 +379,8 @@ Automation projects often fail on a new machine because the wrong JDK is install
 * Installing only a runtime instead of the full JDK.
 * Having multiple Java versions and using the wrong one.
 * Updating `JAVA_HOME` but not reopening the terminal.
+* Setting `JAVA_HOME` to the `bin` folder instead of the JDK folder.
+* Trying to run `java HelloJava.java` after compiling instead of `java HelloJava`.
 
 #### Practice Exercises
 
@@ -610,6 +665,14 @@ IDE: IntelliJ IDEA Community Edition
 Status: Ready to write Java programs
 Next step: Learn variables and data types
 ```
+
+### Acceptance Criteria
+
+* Program is saved in `SetupVerification.java`.
+* Public class name is `SetupVerification`.
+* Program compiles with `javac SetupVerification.java`.
+* Program runs with `java SetupVerification`.
+* Output includes learner, Java target, IDE, setup status, and next step.
 
 ### Enhancement Ideas
 
@@ -994,6 +1057,15 @@ public class StringExample {
 * `startsWith` and `contains` return boolean results.
 * `equals` compares string content.
 
+Null-safe comparison pattern:
+
+```java
+String status = null;
+boolean failed = "FAIL".equals(status);
+```
+
+This returns `false` instead of throwing `NullPointerException`. It is useful when values come from files, user input, APIs, or test data.
+
 #### Expected Output
 
 ```text
@@ -1014,6 +1086,7 @@ UI and API tests often compare actual messages with expected messages. Use `equa
 
 * Comparing strings with `==` instead of `equals`.
 * Forgetting that indexes start at `0`.
+* Calling `value.equals("expected")` when `value` might be `null`.
 * Calling a string method but ignoring the returned value.
 * Assuming `trim()` changes the original string.
 
@@ -1144,8 +1217,45 @@ Small console programs can simulate test data input before you build automation 
 
 * Forgetting to import `Scanner`.
 * Mixing `nextInt()` and `nextLine()` without handling the leftover newline.
+* Assuming the user will always type a valid number.
 * Dividing by zero when total tests is `0`.
 * Forgetting to close the scanner in small programs.
+
+#### Safer Numeric Input Example
+
+Use `hasNextInt()` when invalid numeric input should not crash the program.
+
+```java
+import java.util.Scanner;
+
+public class SafeInputExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter total tests: ");
+
+        if (scanner.hasNextInt()) {
+            int total = scanner.nextInt();
+            if (total > 0) {
+                System.out.println("Total accepted: " + total);
+            } else {
+                System.out.println("Total must be greater than zero");
+            }
+        } else {
+            System.out.println("Please enter a whole number");
+        }
+
+        scanner.close();
+    }
+}
+```
+
+If the user enters `ten`, the expected output is:
+
+```text
+Enter total tests: ten
+Please enter a whole number
+```
 
 #### Practice Exercises
 
@@ -1288,6 +1398,14 @@ Environment: QA
 Username: standard_user
 Pass rate: 90.00%
 ```
+
+### Acceptance Criteria
+
+* Program reads tester, environment, username, passed count, and total count.
+* Username and environment values are normalized consistently.
+* Pass rate uses decimal division, not integer division.
+* Output is formatted to two decimal places.
+* Program avoids division by zero or explains invalid totals clearly.
 
 ### Enhancement Ideas
 
@@ -1933,6 +2051,14 @@ Login successful
 Open admin dashboard
 ```
 
+### Acceptance Criteria
+
+* Program uses at least one `if`.
+* Program uses one `switch`.
+* Program uses a loop with a fixed retry limit.
+* Valid credentials produce the expected success output.
+* Unsupported roles are handled by `default`.
+
 ### Enhancement Ideas
 
 * Read values from `Scanner`.
@@ -2441,6 +2567,14 @@ Message valid: true
 Pass rate: 90.0
 ```
 
+### Acceptance Criteria
+
+* Program keeps `main` short by using helper methods.
+* Username validation rejects null, blank, and too-short values.
+* Message comparison uses `equals`, not `==`.
+* Pass-rate calculation uses decimal division.
+* Output clearly labels each validation result.
+
 ### Enhancement Ideas
 
 * Add email validation.
@@ -2930,6 +3064,14 @@ Highest: 95
 Lowest: 67
 Below passing: 1
 ```
+
+### Acceptance Criteria
+
+* Program stores scores in an array.
+* Program loops through the array instead of repeating calculations manually.
+* Average, highest score, lowest score, and below-passing count are correct.
+* Array indexes stay within valid bounds.
+* Output labels each calculated value.
 
 ### Enhancement Ideas
 
@@ -3520,6 +3662,14 @@ qa_admin | ADMIN | active=true
 guest | USER | active=false
 ```
 
+### Acceptance Criteria
+
+* User fields are private.
+* Constructor initializes username, role, and active status.
+* Setters normalize or protect invalid values.
+* Blank role becomes `USER`.
+* Output matches the expected profile summaries.
+
 ### Enhancement Ideas
 
 * Add email field.
@@ -3562,6 +3712,64 @@ You learned the foundation of OOP: classes, objects, fields, methods, constructo
 * [ ] I can write constructors.
 * [ ] I can use `this`.
 * [ ] I can apply encapsulation.
+
+## Bridge Lesson: Packages, Imports, and Multi-File Projects
+
+As projects grow, you should stop putting every class in one file. Java programs are usually split into multiple files and grouped with packages.
+
+### Why This Matters
+
+SDET projects often have separate classes for models, readers, validators, reports, and application entry points. Clear file organization makes those classes easier to find and reuse.
+
+### Basic File Layout
+
+```text
+src/
+  app/
+    TestExecutionApp.java
+  model/
+    TestCase.java
+  service/
+    TestReportService.java
+```
+
+### Package and Import Rules
+
+* A `package` line names the folder-like group a class belongs to.
+* An `import` line lets one class use another class from a different package.
+* The package name should match the folder path under `src`.
+* One public class normally lives in one file with the same name.
+
+Example:
+
+```text
+File: src/model/TestCase.java
+package model;
+
+public class TestCase {
+    // fields, constructor, getters, and methods
+}
+
+File: src/app/TestExecutionApp.java
+package app;
+
+import model.TestCase;
+
+public class TestExecutionApp {
+    public static void main(String[] args) {
+        // create and use TestCase objects
+    }
+}
+```
+
+### Beginner Rule
+
+For small lessons, one file is fine. For larger projects and capstones, split classes by responsibility:
+
+* Model classes store data.
+* Service/helper classes process data.
+* App classes contain `main`.
+* Exception classes describe clear failure types.
 
 # Unit 7: OOP Part 2: Inheritance, Polymorphism, Abstraction, Interfaces, and Composition
 
@@ -3608,6 +3816,12 @@ Inheritance lets a child class reuse fields and methods from a parent class. A c
 #### Syntax
 
 ```java
+class Parent {
+    void methodName() {
+        System.out.println("Parent behavior");
+    }
+}
+
 class Child extends Parent {
     @Override
     void methodName() {
@@ -4043,8 +4257,15 @@ Composition means one class contains another object. Instead of saying one class
 #### Syntax
 
 ```java
+class Customer {
+}
+
 class Order {
     private Customer customer;
+
+    Order(Customer customer) {
+        this.customer = customer;
+    }
 }
 ```
 
@@ -4278,6 +4499,14 @@ public class WorkItemApp {
 Bug 501: Checkout fails | High
 Test 101: Valid login | PASS
 ```
+
+### Acceptance Criteria
+
+* Program uses at least one parent/child relationship or interface.
+* Child behavior overrides or specializes parent behavior.
+* Program demonstrates polymorphism through a parent/interface reference.
+* Bug and test case summaries are clear.
+* Design does not use inheritance where simple composition is enough.
 
 ### Enhancement Ideas
 
@@ -4840,6 +5069,14 @@ qa_admin allowed
 qa_user denied
 ```
 
+### Acceptance Criteria
+
+* Fields that should not be changed directly are private.
+* Constants use `final` where appropriate.
+* Shared class-level behavior uses `static` only when appropriate.
+* Access rules are demonstrated clearly.
+* Output shows both allowed and denied cases.
+
 ### Enhancement Ideas
 
 * Add more roles.
@@ -5080,6 +5317,42 @@ Throw exceptions when test setup is invalid. For example, if a required environm
 * Throwing exceptions with unclear messages.
 * Using `finally` to return values.
 * Declaring `throws` everywhere instead of handling errors at the right level.
+
+#### Safer Input and Exception Handling Note
+
+Do not wait for a confusing crash when you can validate input first. For console input, check the value before converting or calculating.
+
+```java
+import java.util.Scanner;
+
+public class SafeNumberValidation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Total tests: ");
+
+        try {
+            if (!scanner.hasNextInt()) {
+                throw new IllegalArgumentException("Total tests must be a whole number");
+            }
+
+            int total = scanner.nextInt();
+            validateTotal(total);
+            System.out.println("Accepted total: " + total);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Validation error: " + e.getMessage());
+        } finally {
+            scanner.close();
+        }
+    }
+
+    static void validateTotal(int total) {
+        if (total <= 0) {
+            throw new IllegalArgumentException("Total tests must be greater than zero");
+        }
+    }
+}
+```
 
 #### Practice Exercises
 
@@ -5345,6 +5618,14 @@ Input is valid
 Validation completed
 ```
 
+### Acceptance Criteria
+
+* Program validates required input before processing.
+* Invalid input throws a clear custom or standard exception.
+* Exception handling prints a useful message.
+* `finally` or equivalent cleanup behavior is demonstrated.
+* Program does not silently ignore invalid data.
+
 ### Enhancement Ideas
 
 * Add email validation.
@@ -5527,12 +5808,41 @@ Expected output:
 
 Trying to call `add`, `remove`, or `set` on an unmodifiable list causes `UnsupportedOperationException`.
 
+#### LinkedList Queue-Style Example
+
+Use `ArrayList` as the default list for most beginner work. Use `LinkedList` when you specifically want first/last or queue-like operations.
+
+```java
+import java.util.LinkedList;
+
+public class LinkedListQueueExample {
+    public static void main(String[] args) {
+        LinkedList<String> testQueue = new LinkedList<>();
+
+        testQueue.addLast("Login smoke test");
+        testQueue.addLast("Checkout smoke test");
+        testQueue.addFirst("Environment health check");
+
+        System.out.println("Next test: " + testQueue.removeFirst());
+        System.out.println("Remaining: " + testQueue);
+    }
+}
+```
+
+Expected output:
+
+```text
+Next test: Environment health check
+Remaining: [Login smoke test, Checkout smoke test]
+```
+
 #### Practice Exercises
 
 1. Create a list of browser names.
 2. Add three browsers.
 3. Remove one browser.
 4. Print all remaining browsers.
+5. Create a `LinkedList` queue of three test names and remove the first test.
 
 #### Exercise Solutions
 
@@ -5566,6 +5876,7 @@ Firefox
 
 * Lists are ordered and allow duplicates.
 * `ArrayList` is the common default list.
+* `LinkedList` is useful for queue-like first/last operations.
 * Lists grow dynamically when they are mutable.
 * `List.of(...)` and `stream().toList()` create unmodifiable lists.
 * Use `size()` instead of `.length`.
@@ -6044,6 +6355,14 @@ Statuses: {101=PASS, 102=FAIL, 103=PASS}
 Failed count: 1
 ```
 
+### Acceptance Criteria
+
+* Program uses a `List` for ordered test case titles.
+* Program uses a `Set` for unique tags.
+* Program uses a `Map` for test case statuses by ID.
+* Failed count is calculated from map values.
+* Output warns that set/map order may vary.
+
 ### Enhancement Ideas
 
 * Use a `TestCase` class instead of plain strings.
@@ -6251,10 +6570,10 @@ A generic class works with a type chosen later. For example, `Result<String>` ca
 ```java
 class Box<T> {
     private T value;
-}
 
-static <T> void printValue(T value) {
-    System.out.println(value);
+    static <T> void printValue(T value) {
+        System.out.println(value);
+    }
 }
 ```
 
@@ -6448,6 +6767,14 @@ public class ValidationResultApp {
 Expected: Login successful, Actual: Login successful, Passed: true
 Expected: 200, Actual: 404, Passed: false
 ```
+
+### Acceptance Criteria
+
+* Program defines a generic result class.
+* Program stores at least two different reference types.
+* Program compares expected and actual values safely.
+* Program prints readable validation summaries.
+* Program avoids raw collections and raw generic types.
 
 ### Enhancement Ideas
 
@@ -6987,15 +7314,89 @@ Build a console app that reads user test data from a file and prints valid user 
 
 ### Sample Code
 
-Use the `TestDataReaderExample` lesson code as the project foundation and rename classes to match your project.
+Create `users.csv` in the same folder where you run the program:
+
+```text
+qa_admin,ADMIN,true
+qa_user,USER,true
+locked_user,USER,false
+bad_row
+```
+
+Then create `FileBasedTestDataReader.java`:
+
+```java
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+
+class UserData {
+    private String username;
+    private String role;
+    private boolean active;
+
+    UserData(String username, String role, boolean active) {
+        this.username = username;
+        this.role = role;
+        this.active = active;
+    }
+
+    public String summary() {
+        return username + " | " + role + " | active=" + active;
+    }
+}
+
+public class FileBasedTestDataReader {
+    public static void main(String[] args) {
+        List<UserData> users = new ArrayList<>();
+
+        try {
+            List<String> rows = Files.readAllLines(Path.of("users.csv"));
+
+            for (String row : rows) {
+                String[] parts = row.split(",");
+
+                if (parts.length != 3) {
+                    System.out.println("Skipping invalid row: " + row);
+                    continue;
+                }
+
+                String username = parts[0].trim();
+                String role = parts[1].trim().toUpperCase();
+                boolean active = Boolean.parseBoolean(parts[2].trim());
+
+                users.add(new UserData(username, role, active));
+            }
+
+            for (UserData user : users) {
+                System.out.println(user.summary());
+            }
+        } catch (IOException e) {
+            System.out.println("Could not read users.csv: " + e.getMessage());
+        }
+    }
+}
+```
 
 ### Expected Result
 
 ```text
+Skipping invalid row: bad_row
 qa_admin | ADMIN | active=true
 qa_user | USER | active=true
 locked_user | USER | active=false
 ```
+
+### Acceptance Criteria
+
+* Program reads from `users.csv`.
+* Program skips rows that do not have exactly three columns.
+* Program trims username and role values.
+* Program stores valid rows as objects.
+* Program prints all valid users.
+* Missing file errors are handled with a clear message.
 
 ### Enhancement Ideas
 
@@ -7346,6 +7747,14 @@ Smoke run: 01 Jun 2026
 Regression run: 07 Jun 2026
 Before deadline: true
 ```
+
+### Acceptance Criteria
+
+* Program uses `LocalDate` for schedule dates.
+* Program formats dates with `DateTimeFormatter`.
+* Program compares schedule dates to the release deadline.
+* Output is readable and consistent.
+* Date logic does not compare raw strings.
 
 ### Enhancement Ideas
 
@@ -7826,6 +8235,14 @@ Lowercase: [pass, fail, skipped, pass, fail]
 Passed count: 2
 ```
 
+### Acceptance Criteria
+
+* Program uses at least one stream filter.
+* Program maps statuses to lowercase.
+* Program counts passed statuses correctly.
+* Program excludes skipped statuses from the reportable list.
+* Stream code remains readable and short.
+
 ### Enhancement Ideas
 
 * Use objects instead of strings.
@@ -7921,6 +8338,30 @@ Print debugging example:
 
 ```java
 System.out.println("value before calculation: " + value);
+```
+
+#### IDE Debugger Walkthrough
+
+Use the debugger when print statements are not enough.
+
+1. Put a breakpoint on the line that calculates or changes the value.
+2. Run the program in debug mode.
+3. When execution pauses, inspect variable values.
+4. Use Step Over to run one line at a time.
+5. Watch how values change after each line.
+6. If an exception appears, read the first meaningful line in the stack trace that points to your code.
+7. Fix one cause, run again, and record the mistake in your notes.
+
+Example debugging checklist:
+
+```text
+Input value:
+Expected value:
+Actual value:
+Line where value changed:
+First meaningful error line:
+Fix attempted:
+Result after rerun:
 ```
 
 #### Detailed Code Example
@@ -8315,7 +8756,7 @@ public class CleanValidationUtility {
     }
 
     static boolean isKnownStatus(String status) {
-        return status.equals("PASS") || status.equals("FAIL") || status.equals("SKIPPED");
+        return "PASS".equals(status) || "FAIL".equals(status) || "SKIPPED".equals(status);
     }
 
     static void printSummary(boolean validUser, boolean validPassword, boolean validStatus) {
@@ -8333,6 +8774,14 @@ Username valid: true
 Password valid: true
 Status valid: true
 ```
+
+### Acceptance Criteria
+
+* Method names clearly describe the validation being performed.
+* Repeated validation logic is extracted into reusable methods.
+* Status validation is null-safe.
+* Program output is unchanged after refactoring.
+* Code is easier to read than the starting version.
 
 ### Enhancement Ideas
 
@@ -8694,14 +9143,14 @@ class ReviewTestCase {
     }
 
     private String validateStatus(String status) {
-        if (status.equals("PASS") || status.equals("FAIL") || status.equals("SKIPPED")) {
+        if ("PASS".equals(status) || "FAIL".equals(status) || "SKIPPED".equals(status)) {
             return status;
         }
         throw new IllegalArgumentException("Invalid status: " + status);
     }
 
     private String validatePriority(String priority) {
-        if (priority.equals("P1") || priority.equals("P2") || priority.equals("P3")) {
+        if ("P1".equals(priority) || "P2".equals(priority) || "P3".equals(priority)) {
             return priority;
         }
         throw new IllegalArgumentException("Invalid priority: " + priority);
@@ -8755,6 +9204,15 @@ public class JavaFundamentalsReviewApp {
 Failed: 1
 High priority failures: 1
 ```
+
+### Acceptance Criteria
+
+* Program uses an object model for test cases.
+* Program validates status and priority values.
+* Validation handles null or unsupported values clearly.
+* Program stores test cases in a collection.
+* Failed and high-priority failure counts are correct.
+* Output matches the expected report.
 
 ### Enhancement Ideas
 
@@ -9036,9 +9494,25 @@ throw new IllegalArgumentException("Username is required");
 ### Generics
 
 ```java
-List<String> names = new ArrayList<>();
-Map<String, Integer> scores = new HashMap<>();
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 class Result<T> { }
+
+public class GenericsQuickExample {
+    public static void main(String[] args) {
+        List<String> names = new ArrayList<>();
+        Map<String, Integer> scores = new HashMap<>();
+
+        names.add("qa_user");
+        scores.put("qa_user", 95);
+
+        System.out.println(names);
+        System.out.println(scores);
+    }
+}
 ```
 
 Generics improve type safety and reduce casting.
@@ -9139,6 +9613,26 @@ Use this process:
 
 ### Exercise Solutions
 
+#### Beginner Solution: Print Java Goal
+
+```java
+public class JavaGoalExercise {
+    public static void main(String[] args) {
+        System.out.println("Name: OmarDotLog");
+        System.out.println("Goal: Become a future SDET");
+        System.out.println("Java target: Java 25 LTS");
+    }
+}
+```
+
+Expected output:
+
+```text
+Name: OmarDotLog
+Goal: Become a future SDET
+Java target: Java 25 LTS
+```
+
 #### Beginner Solution: Failed Test Count
 
 ```java
@@ -9178,6 +9672,52 @@ Expected output:
 qa_user
 ```
 
+#### Beginner Solution: Check Adult
+
+```java
+public class AdultCheckExercise {
+    public static void main(String[] args) {
+        int age = 20;
+        boolean adult = age >= 18;
+
+        System.out.println("Adult: " + adult);
+    }
+}
+```
+
+Expected output:
+
+```text
+Adult: true
+```
+
+#### Beginner Solution: Print Numbers 1 To 10
+
+```java
+public class PrintNumbersExercise {
+    public static void main(String[] args) {
+        for (int number = 1; number <= 10; number++) {
+            System.out.println(number);
+        }
+    }
+}
+```
+
+Expected output:
+
+```text
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+
 #### Beginner Solution: Method `isPositive`
 
 ```java
@@ -9196,6 +9736,59 @@ Expected output:
 
 ```text
 true
+```
+
+#### Beginner Solution: Browser Array
+
+```java
+public class BrowserArrayExercise {
+    public static void main(String[] args) {
+        String[] browsers = {"Chrome", "Firefox", "Edge"};
+
+        for (String browser : browsers) {
+            System.out.println(browser);
+        }
+    }
+}
+```
+
+Expected output:
+
+```text
+Chrome
+Firefox
+Edge
+```
+
+#### Beginner Solution: User Class
+
+```java
+class ExerciseUser {
+    private String username;
+    private String role;
+
+    ExerciseUser(String username, String role) {
+        this.username = username;
+        this.role = role;
+    }
+
+    String summary() {
+        return username + " | " + role;
+    }
+}
+
+public class UserClassExercise {
+    public static void main(String[] args) {
+        ExerciseUser user = new ExerciseUser("qa_user", "USER");
+        System.out.println(user.summary());
+    }
+}
+```
+
+Expected output:
+
+```text
+qa_user | USER
 ```
 
 #### Intermediate Solution: Count Statuses
@@ -9233,6 +9826,61 @@ Failed: 2
 Skipped: 1
 ```
 
+#### Intermediate Solution: Validate Password Length
+
+```java
+public class PasswordLengthExercise {
+    public static void main(String[] args) {
+        try {
+            validatePassword("short");
+            System.out.println("Password accepted");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+    static void validatePassword(String password) {
+        if (password == null || password.length() < 8) {
+            throw new IllegalArgumentException("Password must be at least 8 characters");
+        }
+    }
+}
+```
+
+Expected output:
+
+```text
+Error: Password must be at least 8 characters
+```
+
+#### Intermediate Solution: Store Unique Tags
+
+```java
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+public class UniqueTagsExercise {
+    public static void main(String[] args) {
+        Set<String> tags = new LinkedHashSet<>();
+        tags.add("smoke");
+        tags.add("regression");
+        tags.add("smoke");
+
+        System.out.println("Unique tags: " + tags.size());
+        System.out.println(tags);
+    }
+}
+```
+
+Expected output:
+
+```text
+Unique tags: 2
+[smoke, regression]
+```
+
+`LinkedHashSet` keeps insertion order while still removing duplicates.
+
 #### Intermediate Solution: Map Username to Role
 
 ```java
@@ -9254,6 +9902,87 @@ Expected output:
 
 ```text
 ADMIN
+```
+
+#### Intermediate Solution: Generic `Result<T>`
+
+```java
+class ExerciseResult<T> {
+    private T value;
+    private boolean passed;
+
+    ExerciseResult(T value, boolean passed) {
+        this.value = value;
+        this.passed = passed;
+    }
+
+    String summary() {
+        return "Value: " + value + ", Passed: " + passed;
+    }
+}
+
+public class GenericResultExercise {
+    public static void main(String[] args) {
+        ExerciseResult<String> result = new ExerciseResult<>("Login successful", true);
+        System.out.println(result.summary());
+    }
+}
+```
+
+Expected output:
+
+```text
+Value: Login successful, Passed: true
+```
+
+#### Intermediate Solution: Read Lines From File
+
+```java
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+
+public class ReadLinesExercise {
+    public static void main(String[] args) {
+        try {
+            List<String> lines = Files.readAllLines(Path.of("exercise-data.txt"));
+            for (String line : lines) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.out.println("Could not read file: " + e.getMessage());
+        }
+    }
+}
+```
+
+If `exercise-data.txt` contains `PASS`, the expected output is:
+
+```text
+PASS
+```
+
+#### Intermediate Solution: Format Date
+
+```java
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+public class FormatDateExercise {
+    public static void main(String[] args) {
+        LocalDate date = LocalDate.of(2026, 5, 31);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        System.out.println(date.format(formatter));
+    }
+}
+```
+
+Expected output:
+
+```text
+31/05/2026
 ```
 
 #### Practical Solution: Login Validator
@@ -9288,6 +10017,114 @@ Expected output:
 Login allowed
 ```
 
+#### Practical Solution: Test Case Status Report
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+class StatusReportTestCase {
+    private int id;
+    private String title;
+    private String status;
+
+    StatusReportTestCase(int id, String title, String status) {
+        this.id = id;
+        this.title = title;
+        this.status = status;
+    }
+
+    String getStatus() {
+        return status;
+    }
+
+    String summary() {
+        return id + " | " + title + " | " + status;
+    }
+}
+
+public class TestCaseStatusReportExercise {
+    public static void main(String[] args) {
+        List<StatusReportTestCase> cases = new ArrayList<>();
+        cases.add(new StatusReportTestCase(101, "Valid login", "PASS"));
+        cases.add(new StatusReportTestCase(102, "Invalid login", "FAIL"));
+
+        int failed = 0;
+        for (StatusReportTestCase testCase : cases) {
+            System.out.println(testCase.summary());
+            if ("FAIL".equals(testCase.getStatus())) {
+                failed++;
+            }
+        }
+
+        System.out.println("Failed count: " + failed);
+    }
+}
+```
+
+Expected output:
+
+```text
+101 | Valid login | PASS
+102 | Invalid login | FAIL
+Failed count: 1
+```
+
+#### Practical Solution: Parse CSV User Data
+
+```java
+import java.util.List;
+
+class ParsedUser {
+    private String username;
+    private String role;
+    private boolean active;
+
+    ParsedUser(String username, String role, boolean active) {
+        this.username = username;
+        this.role = role;
+        this.active = active;
+    }
+
+    String summary() {
+        return username + " | " + role + " | active=" + active;
+    }
+}
+
+public class ParseCsvUsersExercise {
+    public static void main(String[] args) {
+        List<String> rows = List.of(
+                "qa_admin,ADMIN,true",
+                "qa_user,USER,true",
+                "bad_row"
+        );
+
+        for (String row : rows) {
+            String[] parts = row.split(",");
+            if (parts.length != 3) {
+                System.out.println("Skipping invalid row: " + row);
+                continue;
+            }
+
+            ParsedUser user = new ParsedUser(
+                    parts[0].trim(),
+                    parts[1].trim(),
+                    Boolean.parseBoolean(parts[2].trim())
+            );
+            System.out.println(user.summary());
+        }
+    }
+}
+```
+
+Expected output:
+
+```text
+qa_admin | ADMIN | active=true
+qa_user | USER | active=true
+Skipping invalid row: bad_row
+```
+
 #### Practical Solution: Filter Failed Test Cases
 
 ```java
@@ -9310,6 +10147,42 @@ Expected output:
 
 ```text
 [FAIL, FAIL]
+```
+
+#### Practical Solution: Refactor Duplicated Validation Logic
+
+```java
+public class RefactorValidationExercise {
+    public static void main(String[] args) {
+        printValidation("Username", isNotBlank("qa_user"));
+        printValidation("Password", hasMinimumLength("Secret123", 8));
+        printValidation("Status", isKnownStatus("PASS"));
+    }
+
+    static boolean isNotBlank(String value) {
+        return value != null && !value.isBlank();
+    }
+
+    static boolean hasMinimumLength(String value, int minimumLength) {
+        return value != null && value.length() >= minimumLength;
+    }
+
+    static boolean isKnownStatus(String status) {
+        return "PASS".equals(status) || "FAIL".equals(status) || "SKIPPED".equals(status);
+    }
+
+    static void printValidation(String fieldName, boolean valid) {
+        System.out.println(fieldName + " valid: " + valid);
+    }
+}
+```
+
+Expected output:
+
+```text
+Username valid: true
+Password valid: true
+Status valid: true
 ```
 
 #### Practical Solution: Test Report Factory
@@ -9579,6 +10452,14 @@ Lowest: 72
 Grade: B
 ```
 
+#### Acceptance Criteria
+
+* Program stores at least five scores.
+* Average, highest, and lowest values are correct.
+* Letter grade follows the stated ranges.
+* Calculation logic is placed in methods.
+* Output labels each result.
+
 #### Possible Enhancements
 
 * Read scores with `Scanner`.
@@ -9615,6 +10496,14 @@ Strings, `if`, methods, booleans, validation.
 ```text
 Login successful
 ```
+
+#### Acceptance Criteria
+
+* Program validates username, password, and active status.
+* Blank username or password produces a clear error.
+* Invalid credentials do not print success.
+* Active account is required for success.
+* Final output is specific and readable.
 
 #### Possible Enhancements
 
@@ -9656,6 +10545,14 @@ OOP, constructors, collections, loops, streams.
 Failed count: 1
 ```
 
+#### Acceptance Criteria
+
+* Program defines a `TestCase` class.
+* Test cases are stored in a collection.
+* Each test case summary includes ID, title, priority, and status.
+* Failed count is accurate.
+* Output matches the expected report format.
+
 #### Possible Enhancements
 
 * Search by ID.
@@ -9693,6 +10590,14 @@ OOP, collections, conditions, streams.
 High severity bugs:
 501 | Checkout fails | High | Open
 ```
+
+#### Acceptance Criteria
+
+* Program defines a `Bug` class.
+* Bugs are stored in a list.
+* Filter logic selects only high-severity bugs.
+* Bug summaries include ID, title, severity, and status.
+* Output clearly labels the filtered section.
 
 #### Possible Enhancements
 
@@ -9735,6 +10640,14 @@ Withdrawn: 40.0
 Balance: 60.0
 ```
 
+#### Acceptance Criteria
+
+* Balance is stored privately.
+* Deposit rejects non-positive amounts.
+* Withdraw rejects non-positive amounts.
+* Withdraw rejects amounts greater than balance.
+* Final balance is correct after valid operations.
+
 #### Possible Enhancements
 
 * Add transaction history list.
@@ -9772,6 +10685,14 @@ OOP, `HashMap`, methods, loops.
 Low stock:
 SKU-2 | Mouse | quantity=3
 ```
+
+#### Acceptance Criteria
+
+* Program stores products by SKU in a map.
+* Quantity updates affect the correct product.
+* Low-stock logic uses a clear threshold.
+* Output prints only products below the threshold.
+* Missing SKU handling is clear.
 
 #### Possible Enhancements
 
@@ -9811,6 +10732,14 @@ Files, exceptions, arrays, collections, OOP.
 qa_admin | ADMIN | active=true
 qa_user | USER | active=true
 ```
+
+#### Acceptance Criteria
+
+* Program reads `users.csv`.
+* Program validates column count before creating objects.
+* Invalid rows are skipped or reported clearly.
+* Valid rows become user objects.
+* Output prints readable user summaries.
 
 #### Possible Enhancements
 
@@ -9856,6 +10785,15 @@ Verify result: true
 Cleanup test data
 CONSOLE REPORT: Smoke suite finished
 ```
+
+#### Acceptance Criteria
+
+* Builder creates readable test case objects.
+* Factory returns the correct report writer.
+* Strategy changes validation behavior without changing caller code.
+* Template Method controls setup, execution, verification, and cleanup order.
+* Facade exposes one simple method for running the smoke suite.
+* Output demonstrates the full workflow.
 
 #### Possible Enhancements
 
@@ -9953,9 +10891,9 @@ class InvalidTestCaseException extends RuntimeException {
 Model validation:
 
 ```java
-private String validateStatus(String status) {
-    if (status.equals("PASS") || status.equals("FAIL")
-            || status.equals("SKIPPED") || status.equals("NOT_RUN")) {
+    private String validateStatus(String status) {
+    if ("PASS".equals(status) || "FAIL".equals(status)
+            || "SKIPPED".equals(status) || "NOT_RUN".equals(status)) {
         return status;
     }
     throw new InvalidTestCaseException("Invalid status: " + status);
@@ -10041,7 +10979,9 @@ Report written to test-report.txt
 
 ---
 
-## 8. Practical Design Patterns for Java and Future SDETs
+## 8. Optional Enrichment: Practical Design Patterns for Java and Future SDETs
+
+This section is optional enrichment. Complete the Java fundamentals, projects, and capstone first. Then use this section to understand common design ideas you may later see in SDET and automation code.
 
 Design patterns are reusable ways to solve common design problems. They are not Java keywords and they are not rules that must be forced into every program. They are vocabulary and structure for making code easier to change when the problem genuinely needs that structure.
 
@@ -11240,7 +12180,39 @@ try {
 
 ---
 
-## 12. Final Notes for Students
+## 12. Source and Version Mapping
+
+This guide is self-contained for study. The references below are listed so you know which official or common learning areas the course aligns with; you do not need to open them while studying each lesson.
+
+### Java Version Target
+
+* Primary target: Java 25 LTS.
+* Compatibility baseline: most examples also work on Java 21 LTS.
+* Feature policy: examples avoid preview features and advanced version-specific APIs.
+* Recommended install: full JDK, because it includes both runtime components and developer tools such as `javac`.
+
+### Topic Mapping
+
+| Guide Area | Reference Area |
+| ---------- | -------------- |
+| JDK, JVM, `javac`, `java`, program structure | Java language and tool documentation |
+| Variables, primitive types, operators, strings, control flow | Java language basics |
+| Classes, objects, constructors, encapsulation, inheritance, interfaces | Java object-oriented programming |
+| Exceptions | Java exception handling |
+| Collections and generics | Java Collections Framework and generics |
+| File handling | `java.nio.file` APIs |
+| Date and time | `java.time` APIs |
+| Lambdas and streams | Functional interfaces and Stream API |
+| Debugging and clean code | IDE/debugger practice and general Java coding conventions |
+| SDET examples | Plain Java modeling, validation, test data processing, and reporting |
+
+### External Topic Timing
+
+Selenium, JUnit, TestNG, Maven, Gradle, Spring Boot, REST Assured, JSON libraries, and CI/CD are intentionally delayed until after this Java foundation. Learn them after you can build and explain the core Java projects in this guide.
+
+---
+
+## 13. Final Notes for Students
 
 ### How To Practice
 
