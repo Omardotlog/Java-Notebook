@@ -1,7 +1,5 @@
 # Complete Java Study Guide for Beginners and Future SDETs
 
-Research approach used for this guide: the course order and technical guidance were checked against official Java sources from Oracle, Dev.java, OpenJDK, and the Java Language Specification, then compared with beginner-friendly learning paths from W3Schools, Baeldung, GeeksforGeeks, and public Udemy course outlines. SDET relevance was aligned with current software testing and automation role expectations. The learning content below is original, self-contained, and written so a student can study directly from this file.
-
 ---
 
 ## 1. Course Overview
@@ -83,7 +81,7 @@ After completing this guide, you should be able to:
 
 ### Recommended Java Version
 
-Use Java 25 LTS for this guide. Java 26 is the current feature release as of May 31, 2026, but Java 25 is the latest Long-Term Support release and is the safest teaching baseline for students and teams. Most examples also work on Java 21 LTS because the guide avoids preview features and advanced version-specific APIs.
+Use Java 25 LTS for this guide. Java 25 LTS is a stable Long-Term Support baseline for students and teams. Most examples also work on Java 21 LTS because the guide avoids preview features and advanced version-specific APIs.
 
 ### Required Tools
 
@@ -111,33 +109,6 @@ Acceptable alternatives:
 
 For beginners, IntelliJ IDEA Community Edition is a good choice because it gives helpful error messages, code completion, refactoring tools, and a built-in debugger.
 
-### Estimated Duration
-
-Recommended pace:
-
-* Fast review pace: 6 to 8 weeks.
-* Beginner pace: 10 to 12 weeks.
-* Slow mastery pace while working full-time: 14 to 16 weeks.
-
-Expect to spend 6 to 10 hours per week if you want strong results.
-
-### Weekly Study Plan
-
-| Week | Focus | Outcome |
-| ---- | ----- | ------- |
-| 1 | Java setup, first programs, variables | Run simple Java apps |
-| 2 | Operators, strings, input, formatting | Build input/output utilities |
-| 3 | Control flow and loops | Write validation logic |
-| 4 | Methods and arrays | Build reusable data-processing code |
-| 5 | OOP classes, objects, constructors | Model users and test cases |
-| 6 | Encapsulation, inheritance, polymorphism | Build richer object models |
-| 7 | Abstraction, interfaces, composition, keywords | Understand framework-style design |
-| 8 | Exceptions and collections | Build safer data-driven apps |
-| 9 | Generics, files, date/time | Read test data and schedule checks |
-| 10 | Lambdas, streams, debugging, clean code | Process results cleanly |
-| 11 | Mini-projects | Practice job-like tasks |
-| 12 | Capstone project | Combine all major skills |
-
 ### How To Study This Guide Effectively
 
 Use this method:
@@ -156,44 +127,30 @@ Do not only read. Java becomes clear when you type, run, break, debug, and repai
 
 ---
 
-## 2. Research Summary
+## 2. Full Learning Path
 
-| Source Type | Sources Reviewed | How The Information Was Used |
-| ----------- | ---------------- | ---------------------------- |
-| Official Java documentation | Oracle Java Downloads, Oracle Java SE 25 Documentation, Oracle Java SE 25 API docs, Java SE 25 Tool Specifications | Confirmed Java 25 LTS recommendation, modern API names, compiler/runtime concepts, and standard syntax. |
-| Official learning material | Dev.java Learn Java, Oracle Java Tutorials archive | Used for beginner progression patterns: getting started, language basics, classes, interfaces, exceptions, collections, and deployment concepts. |
-| OpenJDK | OpenJDK JDK 25 project pages and release information | Confirmed JDK 25 position as Java SE 25 reference implementation and avoided preview-only features in beginner examples. |
-| Java Language Specification | Java SE 25 JLS and JVM specification references | Used when precision mattered for terms such as class, object, method invocation, access control, exceptions, and type conversion. |
-| Beginner-friendly sources | W3Schools Java, Baeldung Java tutorials, GeeksforGeeks Java tutorials | Compared beginner explanation order, common examples, and areas where students often need simpler wording. |
-| Udemy course benchmarking | Public curriculum listings for popular beginner/intermediate Java courses | Used only for sequencing inspiration: setup, basics, control flow, methods, OOP, arrays, collections, exceptions, and projects. No paid lesson content was copied. |
-| Industry and SDET needs | Public SDET role descriptions and automation testing roadmaps | Used to emphasize test data, validation helpers, console tools, file-based data, collections, debugging, clean code, and automation-readiness. |
-
----
-
-## 3. Full Learning Path
-
-| Unit | Title | Goal | Estimated Time | Difficulty | Main Deliverable |
-| ---- | ----- | ---- | -------------- | ---------- | ---------------- |
-| 1 | Java Foundations and Setup | Understand how Java works and run first programs | 6-8 hours | Beginner | First compiled Java console app |
-| 2 | Variables, Types, Strings, Input, and Formatting | Store, transform, input, and display data | 8-10 hours | Beginner | Test data formatter |
-| 3 | Control Flow | Make decisions and repeat actions | 8-10 hours | Beginner | Validation decision engine |
-| 4 | Methods and Reusable Logic | Break code into reusable actions | 7-9 hours | Beginner | QA validation helper |
-| 5 | Arrays and Nested Data | Store fixed-size lists and tabular values | 6-8 hours | Beginner | Test score analyzer |
-| 6 | OOP Part 1: Classes, Objects, Constructors, Encapsulation | Model real entities safely | 10-12 hours | Beginner to Intermediate | User profile model |
-| 7 | OOP Part 2: Inheritance, Polymorphism, Abstraction, Interfaces, Composition | Build flexible object designs | 12-14 hours | Intermediate | Bug/test-case domain model |
-| 8 | Java Modifiers and Core Keywords | Use Java keywords intentionally | 5-7 hours | Beginner to Intermediate | Access-control demo |
-| 9 | Exception Handling | Handle failures without crashing carelessly | 7-9 hours | Intermediate | Safe input and validation utility |
-| 10 | Collections Framework | Store dynamic groups of data | 10-12 hours | Intermediate | Test case manager data store |
-| 11 | Generics | Use type-safe reusable code | 5-7 hours | Intermediate | Type-safe result container |
-| 12 | File Handling | Read and write test data files | 7-9 hours | Intermediate | File-based test data reader |
-| 13 | Date and Time API | Work with dates, times, and deadlines | 5-7 hours | Beginner to Intermediate | Test execution scheduler |
-| 14 | Modern Java Basics | Use lambdas and streams for simple data processing | 8-10 hours | Intermediate | Test result filtering utility |
-| 15 | Debugging, Clean Code, and Problem Solving | Write readable code and fix errors | 8-10 hours | Intermediate | Refactored clean-code utility |
-| 16 | SDET Integration Review | Combine fundamentals into an SDET-style app | 12-16 hours | Intermediate | End-to-end Java review app |
+| Unit | Title | Goal | Difficulty | Main Deliverable |
+| ---- | ----- | ---- | ---------- | ---------------- |
+| 1 | Java Foundations and Setup | Understand how Java works and run first programs | Beginner | First compiled Java console app |
+| 2 | Variables, Types, Strings, Input, and Formatting | Store, transform, input, and display data | Beginner | Test data formatter |
+| 3 | Control Flow | Make decisions and repeat actions | Beginner | Validation decision engine |
+| 4 | Methods and Reusable Logic | Break code into reusable actions | Beginner | QA validation helper |
+| 5 | Arrays and Nested Data | Store fixed-size lists and tabular values | Beginner | Test score analyzer |
+| 6 | OOP Part 1: Classes, Objects, Constructors, Encapsulation | Model real entities safely | Beginner to Intermediate | User profile model |
+| 7 | OOP Part 2: Inheritance, Polymorphism, Abstraction, Interfaces, Composition | Build flexible object designs | Intermediate | Bug/test-case domain model |
+| 8 | Java Modifiers and Core Keywords | Use Java keywords intentionally | Beginner to Intermediate | Access-control demo |
+| 9 | Exception Handling | Handle failures without crashing carelessly | Intermediate | Safe input and validation utility |
+| 10 | Collections Framework | Store dynamic groups of data | Intermediate | Test case manager data store |
+| 11 | Generics | Use type-safe reusable code | Intermediate | Type-safe result container |
+| 12 | File Handling | Read and write test data files | Intermediate | File-based test data reader |
+| 13 | Date and Time API | Work with dates, times, and deadlines | Beginner to Intermediate | Test execution scheduler |
+| 14 | Modern Java Basics | Use lambdas and streams for simple data processing | Intermediate | Test result filtering utility |
+| 15 | Debugging, Clean Code, and Problem Solving | Write readable code and fix errors | Intermediate | Refactored clean-code utility |
+| 16 | SDET Integration Review | Combine fundamentals into an SDET-style app | Intermediate | End-to-end Java review app |
 
 ---
 
-## 4. Complete Units and Lessons
+## 3. Complete Units and Lessons
 
 # Unit 1: Java Foundations and Setup
 
@@ -5472,14 +5429,14 @@ flowchart LR
 
 #### Simple Explanation
 
-A `List` stores ordered values and allows duplicates. `ArrayList` is the most common list implementation for beginners. It is good for general use and fast access by index. `LinkedList` can be useful for frequent additions/removals at the beginning or middle, but `ArrayList` is the default choice for most beginner scenarios.
+A `List` stores ordered values and allows duplicates. `ArrayList` is the most common list implementation for beginners. It is good for general use and fast access by index. `LinkedList` is a doubly-linked implementation of `List` and `Deque`; it is useful for first/last operations and queue-like behavior, while indexed access may still require traversal. `ArrayList` remains the default choice for most beginner scenarios.
 
 #### Key Terms
 
 * Collection: object that stores groups of values.
 * List: ordered collection that allows duplicates.
 * ArrayList: resizable array-backed list.
-* LinkedList: list made of linked nodes.
+* LinkedList: doubly-linked implementation of `List` and `Deque`.
 * Element: item inside a collection.
 
 #### Syntax
@@ -5543,6 +5500,32 @@ A list can store all failed test names. As tests fail, add their names to the li
 * Using arrays when the size changes.
 * Accessing an invalid list index.
 * Removing elements from a list while using an enhanced loop.
+* Trying to modify a list created by `List.of(...)` or `stream().toList()`; wrap it in `new ArrayList<>(...)` when you need a mutable list.
+
+#### Mutable vs Unmodifiable Lists
+
+`new ArrayList<>()` creates a mutable list, so you can add, remove, or replace elements. `List.of(...)` creates an unmodifiable list, and `stream().toList()` also returns an unmodifiable list. If you need sample values and later want to change the list, wrap the result in a mutable list.
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class MutableListExample {
+    public static void main(String[] args) {
+        List<String> statuses = new ArrayList<>(List.of("PASS", "FAIL"));
+        statuses.add("SKIPPED");
+        System.out.println(statuses);
+    }
+}
+```
+
+Expected output:
+
+```text
+[PASS, FAIL, SKIPPED]
+```
+
+Trying to call `add`, `remove`, or `set` on an unmodifiable list causes `UnsupportedOperationException`.
 
 #### Practice Exercises
 
@@ -5583,7 +5566,8 @@ Firefox
 
 * Lists are ordered and allow duplicates.
 * `ArrayList` is the common default list.
-* Lists grow dynamically.
+* Lists grow dynamically when they are mutable.
+* `List.of(...)` and `stream().toList()` create unmodifiable lists.
 * Use `size()` instead of `.length`.
 
 ### Lesson 10.2: Set and HashSet
@@ -6645,11 +6629,42 @@ public class ReadBrowsersPractice {
 }
 ```
 
+#### Try-With-Resources Note
+
+Some file APIs, such as `Files.readAllLines`, open and close resources internally. When you directly open a resource such as `BufferedReader`, `BufferedWriter`, or a file-based `Scanner`, use try-with-resources so Java closes it automatically when the block finishes, even if an exception happens.
+
+```java
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+public class TryWithResourcesExample {
+    public static void main(String[] args) {
+        Path path = Path.of("users.csv");
+
+        try (BufferedReader reader = Files.newBufferedReader(path)) {
+            String firstLine = reader.readLine();
+            System.out.println("First row: " + firstLine);
+        } catch (IOException e) {
+            System.out.println("File problem: " + e.getMessage());
+        }
+    }
+}
+```
+
+If `users.csv` starts with `qa_admin,ADMIN,true`, the expected output is:
+
+```text
+First row: qa_admin,ADMIN,true
+```
+
 #### Lesson Recap
 
 * `Path` represents a file path.
 * `Files.readAllLines` reads text lines.
 * File operations can throw `IOException`.
+* Try-with-resources automatically closes directly opened file resources.
 * Always validate file data before trusting it.
 
 ### Lesson 12.2: Writing Files
@@ -7581,6 +7596,7 @@ Streams can filter failed tests from a result list, extract titles, collect uniq
 * Making stream pipelines too complex.
 * Using streams when a loop is easier to understand.
 * Expecting the original list to change after `map`.
+* Assuming every collected list is mutable; `stream().toList()` returns an unmodifiable list.
 
 #### Practice Exercises
 
@@ -8788,7 +8804,7 @@ You integrated the course fundamentals into an SDET-style Java console app. You 
 
 ---
 
-## 5. Required Java Topics
+## 4. Required Java Topics
 
 This guide covered the required Java topics in the units above. Use this section as a detailed index and quick reinforcement.
 
@@ -9009,7 +9025,7 @@ throw new IllegalArgumentException("Username is required");
 
 * `List`: ordered, duplicates allowed.
 * `ArrayList`: common general-purpose list.
-* `LinkedList`: useful for specific insertion/removal patterns.
+* `LinkedList`: doubly-linked `List`/`Deque`; useful for first/last operations and queue-like behavior, not the default for indexed access.
 * `Set`: unique values.
 * `HashSet`: common set, no guaranteed order.
 * `Map`: key-value pairs.
@@ -9089,47 +9105,7 @@ Use this process:
 
 ---
 
-## 6. Topics to Delay
-
-These topics are useful later, but they should not distract from Java fundamentals. Learn them after you can write Java classes, methods, collections, exception handling, and small projects confidently.
-
-| Topic | Why It Should Be Delayed |
-| ----- | ------------------------ |
-| Deep JVM internals | Useful for senior performance work, but beginners first need syntax, OOP, collections, and debugging. |
-| Advanced memory tuning | Requires strong knowledge of JVM behavior, profiling, garbage collection, and production systems. |
-| Reflection | Powerful but complex; it can hide normal type safety and is rarely needed in beginner Java. |
-| Dynamic proxies | Mostly useful in frameworks and advanced library design; not needed for core Java readiness. |
-| Advanced concurrency | Threads, locks, executors, race conditions, and memory visibility require a strong foundation first. |
-| Multithreading deep dive | Basic awareness is fine later, but deep multithreading can overwhelm beginners. |
-| Spring Boot | Important for backend development, but it adds frameworks, annotations, dependency injection, and web concepts. |
-| Selenium | Valuable for SDETs, but it should come after Java methods, OOP, waits, exceptions, and collections. |
-| TestNG | Useful for test organization, but Java fundamentals should come first. |
-| JUnit | Useful for unit testing and automation, but learn it after methods, assertions, exceptions, and classes. |
-| Maven advanced configuration | Build tools are important, but advanced dependency and plugin configuration can wait. |
-| Design patterns deep dive | Patterns make more sense after you have written enough OOP code to feel the repeated problems. |
-
----
-
-## 7. Week-by-Week Study Plan
-
-| Week | Units / Lessons | Study Goals | Practice Tasks | Deliverables |
-| ---- | --------------- | ----------- | -------------- | ------------ |
-| 1 | Unit 1 | Install Java, understand compile/run cycle, write first programs | Run `java -version`, compile two programs, fix simple syntax errors | Setup verification app |
-| 2 | Unit 2 | Learn variables, types, strings, input, and formatting | Build input prompts, calculate pass rate, normalize strings | Test data formatter |
-| 3 | Unit 3 | Make decisions and write loops | Build login rules, browser switch, retry loop, status counters | Validation decision engine |
-| 4 | Units 4-5 | Write methods and use arrays | Refactor repeated logic, analyze scores, loop over data | QA helper and score analyzer |
-| 5 | Unit 6 | Learn classes, objects, constructors, encapsulation | Create user, bug, product, and test case models | User profile model |
-| 6 | Unit 7 | Learn inheritance, polymorphism, abstraction, interfaces, composition | Build work item model and executable test types | Bug/test-case domain model |
-| 7 | Units 8-9 | Use keywords correctly and handle exceptions | Build constants, validate input, throw custom exceptions | Access demo and safe input utility |
-| 8 | Unit 10 | Use collections for dynamic data | Store test cases, tags, roles, and statuses | Test case manager store |
-| 9 | Units 11-13 | Learn generics, files, and date/time | Create generic result, read users file, calculate schedules | Result container, file reader, scheduler |
-| 10 | Units 14-15 | Use streams carefully, debug, clean code, solve problems | Filter results, refactor messy code, write pseudocode | Filtering utility and clean-code utility |
-| 11 | Mini Projects Bank | Build practical console projects | Complete at least three mini-projects | Project portfolio folder |
-| 12 | Final Capstone | Combine Java fundamentals into one SDET-style app | Build, test, debug, and document capstone | SDET test execution manager |
-
----
-
-## 8. Exercises Bank
+## 5. Exercises Bank
 
 ### Exercise Table
 
@@ -9155,6 +9131,11 @@ These topics are useful later, but they should not distract from Java fundamenta
 | Practical / Job-ready | Parse CSV user data | files, arrays, objects | User summaries |
 | Practical / Job-ready | Filter failed test cases | streams, collections | Failed cases list |
 | Practical / Job-ready | Refactor duplicated validation logic | clean code, methods | Same output, cleaner code |
+| Practical / Job-ready | Create a test report factory | Factory Pattern, interfaces | Correct report writer selected |
+| Practical / Job-ready | Build a test case with a builder | Builder Pattern, OOP | Readable test case object |
+| Practical / Job-ready | Switch validation behavior at runtime | Strategy Pattern, functional interfaces | Different validation results |
+| Practical / Job-ready | Queue test actions for later execution | Command Pattern, polymorphism | Actions executed in order |
+| Practical / Job-ready | Create a test execution template | Template Method Pattern, inheritance | Shared workflow with custom steps |
 
 ### Exercise Solutions
 
@@ -9331,9 +9312,233 @@ Expected output:
 [FAIL, FAIL]
 ```
 
+#### Practical Solution: Test Report Factory
+
+```java
+interface SimpleReportWriter {
+    void write(String message);
+}
+
+class ConsoleSimpleReportWriter implements SimpleReportWriter {
+    public void write(String message) {
+        System.out.println("CONSOLE: " + message);
+    }
+}
+
+class SimpleReportWriterFactory {
+    static SimpleReportWriter create(String type) {
+        if (type.equals("console")) {
+            return new ConsoleSimpleReportWriter();
+        }
+        throw new IllegalArgumentException("Unsupported report type: " + type);
+    }
+}
+
+public class ReportFactoryExercise {
+    public static void main(String[] args) {
+        SimpleReportWriter writer = SimpleReportWriterFactory.create("console");
+        writer.write("Smoke suite passed");
+    }
+}
+```
+
+Expected output:
+
+```text
+CONSOLE: Smoke suite passed
+```
+
+#### Practical Solution: Builder for Test Cases
+
+```java
+class BuiltTestCase {
+    private int id;
+    private String title;
+    private String priority;
+
+    private BuiltTestCase(Builder builder) {
+        this.id = builder.id;
+        this.title = builder.title;
+        this.priority = builder.priority;
+    }
+
+    public String summary() {
+        return id + " | " + title + " | " + priority;
+    }
+
+    static class Builder {
+        private int id;
+        private String title;
+        private String priority = "P3";
+
+        Builder id(int id) {
+            this.id = id;
+            return this;
+        }
+
+        Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+        Builder priority(String priority) {
+            this.priority = priority;
+            return this;
+        }
+
+        BuiltTestCase build() {
+            return new BuiltTestCase(this);
+        }
+    }
+}
+
+public class BuilderExercise {
+    public static void main(String[] args) {
+        BuiltTestCase testCase = new BuiltTestCase.Builder()
+                .id(101)
+                .title("Valid login")
+                .priority("P1")
+                .build();
+
+        System.out.println(testCase.summary());
+    }
+}
+```
+
+Expected output:
+
+```text
+101 | Valid login | P1
+```
+
+#### Practical Solution: Strategy Validation
+
+```java
+interface LoginValidationStrategy {
+    boolean isValid(String username, String password);
+}
+
+class StrictLoginValidation implements LoginValidationStrategy {
+    public boolean isValid(String username, String password) {
+        return username.equals("qa_user") && password.equals("Secret123");
+    }
+}
+
+class DemoLoginValidation implements LoginValidationStrategy {
+    public boolean isValid(String username, String password) {
+        return username.startsWith("demo_");
+    }
+}
+
+public class StrategyExercise {
+    public static void main(String[] args) {
+        LoginValidationStrategy strategy = new DemoLoginValidation();
+        System.out.println(strategy.isValid("demo_user", "anything"));
+    }
+}
+```
+
+Expected output:
+
+```text
+true
+```
+
+#### Practical Solution: Command Queue
+
+```java
+import java.util.List;
+
+interface QueuedTestAction {
+    void execute();
+}
+
+class OpenLoginAction implements QueuedTestAction {
+    public void execute() {
+        System.out.println("Open login");
+    }
+}
+
+class ValidateLoginAction implements QueuedTestAction {
+    public void execute() {
+        System.out.println("Validate login");
+    }
+}
+
+public class CommandExercise {
+    public static void main(String[] args) {
+        List<QueuedTestAction> actions = List.of(
+                new OpenLoginAction(),
+                new ValidateLoginAction()
+        );
+
+        for (QueuedTestAction action : actions) {
+            action.execute();
+        }
+    }
+}
+```
+
+Expected output:
+
+```text
+Open login
+Validate login
+```
+
+#### Practical Solution: Template Method Workflow
+
+```java
+abstract class SimpleTestWorkflow {
+    final void run() {
+        setup();
+        execute();
+        verify();
+        cleanup();
+    }
+
+    void setup() {
+        System.out.println("Setup");
+    }
+
+    abstract void execute();
+
+    abstract void verify();
+
+    void cleanup() {
+        System.out.println("Cleanup");
+    }
+}
+
+class SimpleLoginWorkflow extends SimpleTestWorkflow {
+    void execute() {
+        System.out.println("Execute login");
+    }
+
+    void verify() {
+        System.out.println("Verify login");
+    }
+}
+
+public class TemplateExercise {
+    public static void main(String[] args) {
+        new SimpleLoginWorkflow().run();
+    }
+}
+```
+
+Expected output:
+
+```text
+Setup
+Execute login
+Verify login
+Cleanup
+```
+
 ---
 
-## 9. Mini Projects Bank
+## 6. Mini Projects Bank
 
 ### Project 1: Student Grade Calculator
 
@@ -9613,9 +9818,55 @@ qa_user | USER | active=true
 * Count active users.
 * Validate roles.
 
+### Project 8: Test Automation Framework Design Simulator
+
+#### Description
+
+Build a plain Java console app that simulates small parts of a test automation framework design without using Selenium or test libraries.
+
+#### Requirements
+
+* Use Builder Pattern to create `FrameworkTestCase` objects.
+* Use Factory Pattern to create a report writer.
+* Use Strategy Pattern to choose validation behavior.
+* Use Template Method Pattern to define a repeatable test workflow.
+* Use Facade Pattern to expose one simple method such as `runSmokeSuite`.
+
+#### Concepts Used
+
+OOP, interfaces, inheritance, collections, Factory, Builder, Strategy, Template Method, Facade.
+
+#### Step-by-Step Plan
+
+1. Create `FrameworkTestCase` with a nested builder.
+2. Create `ReportWriter` interface and console implementation.
+3. Create `ReportWriterFactory`.
+4. Create `ValidationStrategy` interface with strict and lenient implementations.
+5. Create abstract `FrameworkTest` with `setup`, `execute`, `verify`, and `cleanup`.
+6. Create one concrete test class.
+7. Create `FrameworkFacade` that builds test data, selects collaborators, and runs the workflow.
+
+#### Expected Output
+
+```text
+Starting smoke suite
+Setup test data
+Execute: Valid login
+Verify result: true
+Cleanup test data
+CONSOLE REPORT: Smoke suite finished
+```
+
+#### Possible Enhancements
+
+* Add a file report writer.
+* Add a command queue for validations.
+* Add a proxy that blocks production-only actions.
+* Add a decorator for role-based capabilities.
+
 ---
 
-## 10. Final Capstone Project
+## 7. Final Capstone Project
 
 ### Project Name
 
@@ -9790,7 +10041,991 @@ Report written to test-report.txt
 
 ---
 
-## 11. Assessment Plan
+## 8. Practical Design Patterns for Java and Future SDETs
+
+Design patterns are reusable ways to solve common design problems. They are not Java keywords and they are not rules that must be forced into every program. They are vocabulary and structure for making code easier to change when the problem genuinely needs that structure.
+
+For future SDETs, patterns are useful because automation code grows quickly: test data creation, reporting, validation, page-like models, environment handling, setup/cleanup workflows, and reusable actions all benefit from clear design. The goal is not to memorize pattern names. The goal is to recognize repeated design problems and choose a simple solution.
+
+```mermaid
+flowchart TD
+    A["Design problem"] --> B{"Object creation?"}
+    B -- Yes --> C["Factory or Builder"]
+    B -- No --> D{"Changing behavior?"}
+    D -- Yes --> E["Strategy or Command"]
+    D -- No --> F{"Repeated workflow?"}
+    F -- Yes --> G["Template Method or Execute Around"]
+    F -- No --> H{"Simplify complex subsystem?"}
+    H -- Yes --> I["Facade"]
+    H -- No --> J["Keep simple code"]
+```
+
+### Single Responsibility Principle
+
+#### Simple Explanation
+
+Single Responsibility Principle means a class, method, or module should have one main reason to change. A class that stores test data should not also print reports, read files, and decide retry logic.
+
+#### When To Use It
+
+Use it when one class is doing unrelated jobs. Split the code into smaller classes with clear names.
+
+#### When Not To Use It
+
+Do not split every two lines into a new class. If splitting makes the code harder to read, wait until the responsibility is clearly separate.
+
+#### Mermaid Diagram
+
+```mermaid
+flowchart LR
+    A["Large TestCaseManager"] --> B["TestCase model"]
+    A --> C["TestCasePrinter"]
+    A --> D["TestCaseValidator"]
+```
+
+#### Java Console Example
+
+```java
+class SrpTestCase {
+    private int id;
+    private String title;
+
+    SrpTestCase(int id, String title) {
+        this.id = id;
+        this.title = title;
+    }
+
+    String summary() {
+        return id + " | " + title;
+    }
+}
+
+class SrpTestCasePrinter {
+    void print(SrpTestCase testCase) {
+        System.out.println(testCase.summary());
+    }
+}
+
+public class SingleResponsibilityExample {
+    public static void main(String[] args) {
+        SrpTestCase testCase = new SrpTestCase(101, "Valid login");
+        SrpTestCasePrinter printer = new SrpTestCasePrinter();
+        printer.print(testCase);
+    }
+}
+```
+
+#### Expected Output
+
+```text
+101 | Valid login
+```
+
+#### SDET / Test Automation Example
+
+A page-like class should expose page actions. A separate validator can check business rules. A separate report writer can print or save results.
+
+#### Common Mistakes
+
+* Creating one giant utility class for everything.
+* Splitting classes before there is a real reason.
+* Giving classes vague names such as `Helper`.
+
+#### Practice Exercise
+
+Refactor a class that both stores a bug title and prints the bug report.
+
+#### Exercise Solution
+
+Create one `BugRecord` class for data and one `BugPrinter` class for printing.
+
+### Factory Pattern
+
+#### Simple Explanation
+
+Factory Pattern creates objects without making the caller know the exact creation logic. The caller asks for a type, and the factory returns the correct object.
+
+#### When To Use It
+
+Use it when object creation depends on a value such as report type, browser name, environment, or data source.
+
+#### When Not To Use It
+
+Do not create a factory for one class with no variation.
+
+#### Mermaid Diagram
+
+```mermaid
+flowchart LR
+    A["Test class"] --> B["ReportWriterFactory"]
+    B --> C["ConsoleReportWriter"]
+    B --> D["FileReportWriter"]
+```
+
+#### Java Console Example
+
+```java
+interface PatternReportWriter {
+    void write(String message);
+}
+
+class PatternConsoleReportWriter implements PatternReportWriter {
+    public void write(String message) {
+        System.out.println("CONSOLE: " + message);
+    }
+}
+
+class PatternHtmlReportWriter implements PatternReportWriter {
+    public void write(String message) {
+        System.out.println("<p>" + message + "</p>");
+    }
+}
+
+class PatternReportWriterFactory {
+    static PatternReportWriter create(String type) {
+        if (type.equals("console")) {
+            return new PatternConsoleReportWriter();
+        }
+        if (type.equals("html")) {
+            return new PatternHtmlReportWriter();
+        }
+        throw new IllegalArgumentException("Unknown report type: " + type);
+    }
+}
+
+public class FactoryPatternExample {
+    public static void main(String[] args) {
+        PatternReportWriter writer = PatternReportWriterFactory.create("console");
+        writer.write("Regression completed");
+    }
+}
+```
+
+#### Expected Output
+
+```text
+CONSOLE: Regression completed
+```
+
+#### SDET / Test Automation Example
+
+A factory can create a test data reader based on `csv`, `json`, or `database`, while the test code depends only on a common `TestDataReader` interface.
+
+#### Common Mistakes
+
+* Putting too much business logic inside the factory.
+* Returning unrelated object types.
+* Using strings everywhere without validating supported values.
+
+#### Practice Exercise
+
+Create a factory that returns a `ValidationRule` for `login` or `checkout`.
+
+#### Exercise Solution
+
+Define a `ValidationRule` interface and return `LoginValidationRule` or `CheckoutValidationRule` from a factory method.
+
+### Builder Pattern
+
+#### Simple Explanation
+
+Builder Pattern creates complex objects step by step. It is useful when a constructor would need many parameters or many optional values.
+
+#### When To Use It
+
+Use it for test data objects with many fields, such as user, order, product, or test case data.
+
+#### When Not To Use It
+
+Do not use it for tiny objects with two simple required fields.
+
+#### Mermaid Diagram
+
+```mermaid
+flowchart LR
+    A["Builder"] --> B["id"]
+    A --> C["title"]
+    A --> D["priority"]
+    A --> E["build()"]
+    E --> F["TestCase object"]
+```
+
+#### Java Console Example
+
+```java
+class PatternTestCase {
+    private int id;
+    private String title;
+    private String priority;
+
+    private PatternTestCase(Builder builder) {
+        this.id = builder.id;
+        this.title = builder.title;
+        this.priority = builder.priority;
+    }
+
+    String summary() {
+        return id + " | " + title + " | " + priority;
+    }
+
+    static class Builder {
+        private int id;
+        private String title;
+        private String priority = "P3";
+
+        Builder id(int id) {
+            this.id = id;
+            return this;
+        }
+
+        Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+        Builder priority(String priority) {
+            this.priority = priority;
+            return this;
+        }
+
+        PatternTestCase build() {
+            return new PatternTestCase(this);
+        }
+    }
+}
+
+public class BuilderPatternExample {
+    public static void main(String[] args) {
+        PatternTestCase testCase = new PatternTestCase.Builder()
+                .id(101)
+                .title("Valid login")
+                .priority("P1")
+                .build();
+
+        System.out.println(testCase.summary());
+    }
+}
+```
+
+#### Expected Output
+
+```text
+101 | Valid login | P1
+```
+
+#### SDET / Test Automation Example
+
+Builders are excellent for test data setup:
+
+```java
+new UserBuilder().role("ADMIN").active(true).build();
+```
+
+The test shows only the values that matter for that scenario.
+
+#### Common Mistakes
+
+* Using a builder when a constructor is simple enough.
+* Forgetting to validate required fields in `build`.
+* Letting builder defaults hide important test setup.
+
+#### Practice Exercise
+
+Create an `OrderBuilder` with product name, quantity, and payment type.
+
+#### Exercise Solution
+
+Use a nested static `Builder` class with chainable methods and a `build()` method returning an `Order`.
+
+### Strategy Pattern
+
+#### Simple Explanation
+
+Strategy Pattern lets you pass behavior into an object so the behavior can change at runtime. It avoids long `if else` blocks when the behavior itself varies.
+
+#### When To Use It
+
+Use it when the same workflow needs different validation rules, search modes, sorting rules, or report calculations.
+
+#### When Not To Use It
+
+Do not use it when a simple `if` with two clear branches is easier.
+
+#### Mermaid Diagram
+
+```mermaid
+flowchart LR
+    A["LoginValidator"] --> B["ValidationStrategy"]
+    B --> C["StrictValidation"]
+    B --> D["DemoValidation"]
+```
+
+#### Java Console Example
+
+```java
+interface PatternValidationStrategy {
+    boolean validate(String username, String password);
+}
+
+class PatternStrictValidation implements PatternValidationStrategy {
+    public boolean validate(String username, String password) {
+        return username.equals("qa_user") && password.equals("Secret123");
+    }
+}
+
+class PatternDemoValidation implements PatternValidationStrategy {
+    public boolean validate(String username, String password) {
+        return username.startsWith("demo_");
+    }
+}
+
+class PatternLoginValidator {
+    private PatternValidationStrategy strategy;
+
+    PatternLoginValidator(PatternValidationStrategy strategy) {
+        this.strategy = strategy;
+    }
+
+    boolean canLogin(String username, String password) {
+        return strategy.validate(username, password);
+    }
+}
+
+public class StrategyPatternExample {
+    public static void main(String[] args) {
+        PatternLoginValidator validator = new PatternLoginValidator(new PatternDemoValidation());
+        System.out.println("Allowed: " + validator.canLogin("demo_user", "anything"));
+    }
+}
+```
+
+#### Expected Output
+
+```text
+Allowed: true
+```
+
+#### SDET / Test Automation Example
+
+Use strategies for different validation modes: strict production-like validation, relaxed demo validation, or role-specific validation.
+
+#### Common Mistakes
+
+* Creating many tiny strategy classes for logic that rarely changes.
+* Hiding simple business rules behind too much abstraction.
+* Forgetting to name strategies by behavior.
+
+#### Practice Exercise
+
+Create two strategies for calculating pass rate: one that includes skipped tests and one that excludes skipped tests.
+
+#### Exercise Solution
+
+Define a `PassRateStrategy` interface and implement `IncludeSkippedPassRate` and `ExcludeSkippedPassRate`.
+
+### Command Pattern
+
+#### Simple Explanation
+
+Command Pattern wraps an action inside an object. You can store commands, run them later, retry them, log them, or run them in order.
+
+#### When To Use It
+
+Use it when you need a list of actions such as validations, setup steps, cleanup steps, or UI-like operations.
+
+#### When Not To Use It
+
+Do not use it for one direct method call with no need to store or delay the action.
+
+#### Mermaid Diagram
+
+```mermaid
+flowchart LR
+    A["Command queue"] --> B["OpenPageCommand"]
+    A --> C["ValidateTextCommand"]
+    A --> D["SaveReportCommand"]
+    B --> E["execute()"]
+    C --> E
+    D --> E
+```
+
+#### Java Console Example
+
+```java
+import java.util.List;
+
+interface PatternTestCommand {
+    void execute();
+}
+
+class PatternOpenPageCommand implements PatternTestCommand {
+    public void execute() {
+        System.out.println("Open login page");
+    }
+}
+
+class PatternValidateMessageCommand implements PatternTestCommand {
+    public void execute() {
+        System.out.println("Validate success message");
+    }
+}
+
+public class CommandPatternExample {
+    public static void main(String[] args) {
+        List<PatternTestCommand> commands = List.of(
+                new PatternOpenPageCommand(),
+                new PatternValidateMessageCommand()
+        );
+
+        for (PatternTestCommand command : commands) {
+            command.execute();
+        }
+    }
+}
+```
+
+#### Expected Output
+
+```text
+Open login page
+Validate success message
+```
+
+#### SDET / Test Automation Example
+
+A page with many components can expose reusable validation commands. A test can build a list of validations and execute them consistently.
+
+#### Common Mistakes
+
+* Creating commands for every tiny line of code.
+* Making commands depend on too much hidden global state.
+* Using commands when simple methods are clearer.
+
+#### Practice Exercise
+
+Create commands for `CreateUser`, `DisableUser`, and `PrintUserStatus`.
+
+#### Exercise Solution
+
+Create a `UserCommand` interface with `execute()`, then implement one class per action and run them from a list.
+
+### Template Method Pattern
+
+#### Simple Explanation
+
+Template Method Pattern defines the fixed order of a workflow in a parent class and lets child classes customize specific steps.
+
+#### When To Use It
+
+Use it when workflows share the same high-level steps but differ in details.
+
+#### When Not To Use It
+
+Do not use it if the workflow order changes often or inheritance would be forced.
+
+#### Mermaid Diagram
+
+```mermaid
+flowchart TD
+    A["runTest() in base class"] --> B["setup()"]
+    B --> C["execute() customized"]
+    C --> D["verify() customized"]
+    D --> E["cleanup()"]
+```
+
+#### Java Console Example
+
+```java
+abstract class PatternTestWorkflow {
+    final void runTest() {
+        setup();
+        execute();
+        verify();
+        cleanup();
+    }
+
+    void setup() {
+        System.out.println("Setup test data");
+    }
+
+    abstract void execute();
+
+    abstract void verify();
+
+    void cleanup() {
+        System.out.println("Cleanup test data");
+    }
+}
+
+class PatternLoginWorkflow extends PatternTestWorkflow {
+    void execute() {
+        System.out.println("Execute login scenario");
+    }
+
+    void verify() {
+        System.out.println("Verify dashboard is shown");
+    }
+}
+
+public class TemplateMethodPatternExample {
+    public static void main(String[] args) {
+        PatternTestWorkflow workflow = new PatternLoginWorkflow();
+        workflow.runTest();
+    }
+}
+```
+
+#### Expected Output
+
+```text
+Setup test data
+Execute login scenario
+Verify dashboard is shown
+Cleanup test data
+```
+
+#### SDET / Test Automation Example
+
+Many tests follow setup, execute, verify, and cleanup. The template defines the skeleton while each test customizes the business action and verification.
+
+#### Common Mistakes
+
+* Creating deep inheritance trees.
+* Making too many steps abstract.
+* Using inheritance when composition would be easier.
+
+#### Practice Exercise
+
+Create `BookingWorkflow` with common setup/cleanup and child classes for room booking and car booking.
+
+#### Exercise Solution
+
+Put `runBooking()` in the parent class and override only `selectOption()` and `verifyBooking()` in children.
+
+### Proxy Pattern
+
+#### Simple Explanation
+
+Proxy Pattern uses a placeholder object to control access to another object. The caller talks to the proxy, and the proxy decides whether to call the real object.
+
+#### When To Use It
+
+Use it for environment checks, permission checks, lazy loading, logging, or blocking unsafe operations.
+
+#### When Not To Use It
+
+Do not use it when direct access is already safe and simple.
+
+#### Mermaid Diagram
+
+```mermaid
+flowchart LR
+    A["Test code"] --> B["SafeActionProxy"]
+    B --> C{"Allowed environment?"}
+    C -- Yes --> D["RealAction"]
+    C -- No --> E["Skip safely"]
+```
+
+#### Java Console Example
+
+```java
+interface PatternEnvironmentAction {
+    void run();
+}
+
+class PatternRealDeleteAction implements PatternEnvironmentAction {
+    public void run() {
+        System.out.println("Deleting test data");
+    }
+}
+
+class PatternSafeActionProxy implements PatternEnvironmentAction {
+    private String environment;
+    private PatternEnvironmentAction realAction;
+
+    PatternSafeActionProxy(String environment, PatternEnvironmentAction realAction) {
+        this.environment = environment;
+        this.realAction = realAction;
+    }
+
+    public void run() {
+        if (environment.equals("QA")) {
+            realAction.run();
+        } else {
+            System.out.println("Skipped unsafe action in " + environment);
+        }
+    }
+}
+
+public class ProxyPatternExample {
+    public static void main(String[] args) {
+        PatternEnvironmentAction action =
+                new PatternSafeActionProxy("PROD", new PatternRealDeleteAction());
+        action.run();
+    }
+}
+```
+
+#### Expected Output
+
+```text
+Skipped unsafe action in PROD
+```
+
+#### SDET / Test Automation Example
+
+A proxy can block destructive setup or cleanup steps outside QA environments.
+
+#### Common Mistakes
+
+* Hiding important behavior so tests become confusing.
+* Using proxies instead of simple permission checks when the design is small.
+* Letting the proxy silently skip important failures.
+
+#### Practice Exercise
+
+Create a proxy that allows report writing in all environments but allows data deletion only in QA.
+
+#### Exercise Solution
+
+Wrap `DeleteDataAction` in `EnvironmentGuardProxy` and check the environment before calling the real action.
+
+### Execute Around Method Pattern
+
+#### Simple Explanation
+
+Execute Around Method Pattern places required before-and-after steps around a task. The caller provides the main task, while the wrapper guarantees setup and cleanup.
+
+#### When To Use It
+
+Use it for opening/closing files, starting/stopping timers, creating/cleaning test data, or logging before and after an action.
+
+#### When Not To Use It
+
+Do not use it when there is no repeated setup/cleanup behavior.
+
+#### Mermaid Diagram
+
+```mermaid
+flowchart TD
+    A["around(action)"] --> B["Before step"]
+    B --> C["Run provided action"]
+    C --> D["After step"]
+```
+
+#### Java Console Example
+
+```java
+class PatternActionRunner {
+    void runWithLogging(String name, Runnable action) {
+        System.out.println("Start: " + name);
+        try {
+            action.run();
+        } finally {
+            System.out.println("End: " + name);
+        }
+    }
+}
+
+public class ExecuteAroundPatternExample {
+    public static void main(String[] args) {
+        PatternActionRunner runner = new PatternActionRunner();
+
+        runner.runWithLogging("login validation", () -> {
+            System.out.println("Validate login result");
+        });
+    }
+}
+```
+
+#### Expected Output
+
+```text
+Start: login validation
+Validate login result
+End: login validation
+```
+
+#### SDET / Test Automation Example
+
+Use execute-around behavior for reliable setup and cleanup around a test data operation.
+
+#### Common Mistakes
+
+* Forgetting `finally` for cleanup.
+* Putting too much unrelated logic in the wrapper.
+* Making the wrapper hide failure details.
+
+#### Practice Exercise
+
+Create `runWithTimer` that prints start, runs an action, and prints finished.
+
+#### Exercise Solution
+
+Write a method that accepts `String name` and `Runnable action`, prints before, calls `action.run()`, and prints after inside `finally`.
+
+### Decorator Pattern
+
+#### Simple Explanation
+
+Decorator Pattern wraps an object to add behavior without changing the original class.
+
+#### When To Use It
+
+Use it when capabilities can be added in layers, such as role-based access, logging, or extra report formatting.
+
+#### When Not To Use It
+
+Do not use it when a simple field or subclass is clearer.
+
+#### Mermaid Diagram
+
+```mermaid
+flowchart LR
+    A["BasicUserAccess"] --> B["AdminAccessDecorator"]
+    B --> C["Extra admin capability"]
+```
+
+#### Java Console Example
+
+```java
+interface PatternUserAccess {
+    String permissions();
+}
+
+class PatternBasicUserAccess implements PatternUserAccess {
+    public String permissions() {
+        return "view";
+    }
+}
+
+class PatternAdminAccessDecorator implements PatternUserAccess {
+    private PatternUserAccess wrapped;
+
+    PatternAdminAccessDecorator(PatternUserAccess wrapped) {
+        this.wrapped = wrapped;
+    }
+
+    public String permissions() {
+        return wrapped.permissions() + ", edit, delete";
+    }
+}
+
+public class DecoratorPatternExample {
+    public static void main(String[] args) {
+        PatternUserAccess access =
+                new PatternAdminAccessDecorator(new PatternBasicUserAccess());
+
+        System.out.println(access.permissions());
+    }
+}
+```
+
+#### Expected Output
+
+```text
+view, edit, delete
+```
+
+#### SDET / Test Automation Example
+
+Decorators can model user roles or report writers that add formatting, timestamps, or environment labels.
+
+#### Common Mistakes
+
+* Creating too many nested decorators.
+* Making wrappers hard to debug.
+* Using decorators when a simple configuration option is enough.
+
+#### Practice Exercise
+
+Create a report writer decorator that adds `[QA]` before each report message.
+
+#### Exercise Solution
+
+Wrap a basic `ReportWriter` and return or print the original message with an environment prefix.
+
+### Facade Pattern
+
+#### Simple Explanation
+
+Facade Pattern provides one simple class or method over several smaller classes. It hides orchestration complexity from the caller.
+
+#### When To Use It
+
+Use it when a workflow requires several services, but the caller should not coordinate every detail.
+
+#### When Not To Use It
+
+Do not use it to hide bad design. The smaller classes behind the facade should still be clear.
+
+#### Mermaid Diagram
+
+```mermaid
+flowchart LR
+    A["TestExecutionFacade"] --> B["DataLoader"]
+    A --> C["Executor"]
+    A --> D["Reporter"]
+```
+
+#### Java Console Example
+
+```java
+class PatternDataLoader {
+    String load() {
+        return "Valid login";
+    }
+}
+
+class PatternExecutor {
+    boolean execute(String scenario) {
+        System.out.println("Execute: " + scenario);
+        return true;
+    }
+}
+
+class PatternReporter {
+    void report(boolean passed) {
+        System.out.println("Passed: " + passed);
+    }
+}
+
+class PatternTestExecutionFacade {
+    private PatternDataLoader loader = new PatternDataLoader();
+    private PatternExecutor executor = new PatternExecutor();
+    private PatternReporter reporter = new PatternReporter();
+
+    void runSmokeSuite() {
+        String scenario = loader.load();
+        boolean passed = executor.execute(scenario);
+        reporter.report(passed);
+    }
+}
+
+public class FacadePatternExample {
+    public static void main(String[] args) {
+        new PatternTestExecutionFacade().runSmokeSuite();
+    }
+}
+```
+
+#### Expected Output
+
+```text
+Execute: Valid login
+Passed: true
+```
+
+#### SDET / Test Automation Example
+
+A facade can expose `runSmokeSuite()` while internally loading data, running validations, and writing a report.
+
+#### Common Mistakes
+
+* Turning the facade into a huge class that does everything.
+* Hiding important errors.
+* Making every feature go through one central object.
+
+#### Practice Exercise
+
+Create a `BugReportFacade` that creates a bug, validates it, and prints it.
+
+#### Exercise Solution
+
+Use separate `BugFactory`, `BugValidator`, and `BugPrinter` classes, then coordinate them through `BugReportFacade`.
+
+### Singleton Pattern with Caution
+
+#### Simple Explanation
+
+Singleton Pattern restricts a class to one shared instance. It is often used for configuration-like objects, but it can create hidden global state.
+
+#### When To Use It
+
+Use it sparingly for read-only configuration or simple shared services where one instance is genuinely enough.
+
+#### When Not To Use It
+
+Avoid it when tests need different configurations at the same time or when shared mutable state would make tests affect each other.
+
+#### Mermaid Diagram
+
+```mermaid
+flowchart LR
+    A["Test A"] --> C["ConfigManager single instance"]
+    B["Test B"] --> C
+```
+
+#### Java Console Example
+
+```java
+class PatternConfigManager {
+    private static final PatternConfigManager INSTANCE = new PatternConfigManager();
+    private String environment = "QA";
+
+    private PatternConfigManager() {
+    }
+
+    static PatternConfigManager getInstance() {
+        return INSTANCE;
+    }
+
+    String getEnvironment() {
+        return environment;
+    }
+}
+
+public class SingletonPatternExample {
+    public static void main(String[] args) {
+        PatternConfigManager config = PatternConfigManager.getInstance();
+        System.out.println(config.getEnvironment());
+    }
+}
+```
+
+#### Expected Output
+
+```text
+QA
+```
+
+#### SDET / Test Automation Example
+
+A config reader may be shared, but mutable shared config can make tests unreliable. Prefer passing configuration into objects when tests need isolation.
+
+#### Common Mistakes
+
+* Using Singleton to avoid dependency passing.
+* Storing mutable test state globally.
+* Making tests depend on execution order.
+
+#### Practice Exercise
+
+Create a singleton `ReadOnlyConfig` with a fixed environment value.
+
+#### Exercise Solution
+
+Use a private constructor, a private static final instance, and a public static `getInstance()` method. Keep the stored value read-only.
+
+### Pattern Selection Cheat Sheet for SDETs
+
+| Problem | Useful Pattern |
+| ------- | -------------- |
+| One class does too many unrelated jobs | Single Responsibility Principle |
+| Need to create an object based on type | Factory |
+| Need readable test data setup with optional fields | Builder |
+| Need to switch behavior at runtime | Strategy |
+| Need to queue, retry, or log actions | Command |
+| Need fixed workflow steps with custom details | Template Method |
+| Need to guard actions by environment or permission | Proxy |
+| Need guaranteed before/after behavior | Execute Around Method |
+| Need to add behavior without changing original class | Decorator |
+| Need one simple entry point over several services | Facade |
+| Need one shared read-only config object | Singleton with caution |
+
+---
+
+## 9. Assessment Plan
 
 | Stage | Assessment Type | What It Validates | Passing Criteria |
 | ----- | --------------- | ----------------- | ---------------- |
@@ -9803,10 +11038,11 @@ Report written to test-report.txt
 | Clean Code | Refactoring task | Naming, small methods, duplication removal | Behavior preserved and readability improved |
 | Mini-projects | Project review | Practical application of multiple units | At least 4 projects complete |
 | Final capstone | Capstone assessment | Integrated Java fundamentals for SDET readiness | Meets all acceptance criteria and can be explained by student |
+| Design patterns enrichment | Pattern coding tasks | Reusable object creation, behavior switching, workflow reuse, and simplified orchestration | Student can explain when to use and avoid each pattern |
 
 ---
 
-## 12. Java Cheat Sheets
+## 10. Java Cheat Sheets
 
 ### Java Keywords
 
@@ -9924,6 +11160,22 @@ static boolean isValid(String value) {
 | Interface | Behavior contract |
 | Composition | Object has another object |
 
+### Design Pattern Selection Guide
+
+| Problem | Pattern To Consider |
+| ------- | ------------------- |
+| A class has unrelated responsibilities | Single Responsibility Principle |
+| Object creation depends on a type or environment | Factory |
+| A test data object has many optional fields | Builder |
+| A validation or calculation algorithm changes | Strategy |
+| Actions must be stored and executed later | Command |
+| Many workflows share the same step order | Template Method |
+| Access should be controlled by environment or permission | Proxy |
+| Setup and cleanup must always wrap an action | Execute Around Method |
+| Behavior should be added without changing the original class | Decorator |
+| Several services should be used through one simple entry point | Facade |
+| One shared read-only configuration object is enough | Singleton with caution |
+
 ### Collections Selection Guide
 
 | Need | Use |
@@ -9960,7 +11212,7 @@ try {
 
 ---
 
-## 13. Common Beginner Errors and Fixes
+## 11. Common Beginner Errors and Fixes
 
 | Error / Problem | Why It Happens | How To Fix It | Example |
 | --------------- | -------------- | ------------- | ------- |
@@ -9983,47 +11235,12 @@ try {
 | File not found | Wrong path or missing file | Check working directory and path | `Path.of("users.csv")` |
 | Date parse failure | Formatter does not match text | Use matching pattern | `dd/MM/yyyy` for `31/05/2026` |
 | Stream result ignored | Stream operations return new result | Collect or assign result | `List<String> x = stream.toList()` |
+| `UnsupportedOperationException` when changing a list | The list was created by `List.of(...)` or `stream().toList()` and is unmodifiable | Use `new ArrayList<>(List.of(...))` or collect into a mutable list when changes are needed | `List<String> x = new ArrayList<>(List.of("PASS"));` |
 | Too much code in `main` | No decomposition | Extract methods/classes | `printReport()` |
 
 ---
 
-## 14. Source Mapping
-
-| Unit | Main Research Sources Used | Notes |
-| ---- | -------------------------- | ----- |
-| 1 | Oracle Java Downloads, Dev.java, Oracle tool docs, OpenJDK | Used for JDK/JVM/compiler/runtime setup and Java 25 LTS baseline. |
-| 2 | Dev.java, Oracle Java tutorials, W3Schools, Baeldung | Used for language basics sequence and beginner examples. |
-| 3 | Dev.java, Oracle Java tutorials, W3Schools | Used for control-flow progression and syntax confirmation. |
-| 4 | Dev.java, Oracle Java tutorials, Udemy public curriculum benchmarking | Used for methods-before-OOP learning order. |
-| 5 | Oracle Java tutorials, W3Schools, GeeksforGeeks | Used for array basics and beginner pitfalls. |
-| 6 | Dev.java, Oracle tutorials, JLS references | Used for OOP terminology and encapsulation order. |
-| 7 | Dev.java, Oracle tutorials, JLS references, Baeldung | Used for inheritance, interfaces, polymorphism, and composition framing. |
-| 8 | JLS, Oracle tutorials | Used for access modifiers and keyword precision. |
-| 9 | Oracle Java API docs, Dev.java, Baeldung | Used for exception types, syntax, and best-practice framing. |
-| 10 | Oracle Java API docs, Dev.java, Baeldung | Used for collections interfaces and common implementations. |
-| 11 | Oracle Java tutorials, Java API docs, Baeldung | Used for generics and type-safety explanation. |
-| 12 | Oracle Java API docs, Dev.java | Used for `Path`, `Files`, and `IOException` examples. |
-| 13 | Oracle Java API docs, Baeldung | Used for `java.time` classes and formatter usage. |
-| 14 | Oracle Java API docs, Dev.java, Baeldung | Used for functional interfaces, lambdas, and stream basics. |
-| 15 | Official Java docs, beginner-source benchmarking, SDET role expectations | Used for debugging, clean code, and problem-solving emphasis. |
-| 16 | SDET role descriptions, automation testing roadmap sources, course benchmarking | Used to align final integration with automation-readiness needs. |
-
-Source URLs for credibility:
-
-* Oracle Java Downloads: https://www.oracle.com/java/technologies/downloads/
-* Dev.java Learn Java: https://dev.java/learn/
-* Oracle Java SE 25 Documentation: https://docs.oracle.com/en/java/javase/25/
-* Oracle Java SE 25 API Documentation: https://docs.oracle.com/en/java/javase/25/docs/api/
-* Java Language Specification: https://docs.oracle.com/javase/specs/
-* OpenJDK: https://openjdk.org/
-* W3Schools Java Tutorial: https://www.w3schools.com/java/
-* Baeldung Java Tutorials: https://www.baeldung.com/java-tutorial
-* GeeksforGeeks Java: https://www.geeksforgeeks.org/java/java/
-* Udemy Java course public listings: https://www.udemy.com/
-
----
-
-## 15. Final Notes for Students
+## 12. Final Notes for Students
 
 ### How To Practice
 
